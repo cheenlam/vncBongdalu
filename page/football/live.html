@@ -42,10 +42,8 @@
                     <div class="o5">{{item.odds.oOdd.o5}}</div>
                 </div>
                 <div class="odds">
-                    <div class="follow"  @click="item.follow = !item.follow">
-                        <div class="icon_star" 
-                        :class="{ 'on': item.follow}"
-                       ></div>
+                    <div class="follow" @click="item.follow = !item.follow">
+                        <div class="icon_star" :class="{ 'on': item.follow}"></div>
                     </div>
                     <div class="o3">{{item.odds.lOdd.o3}}</div>
                     <div class="o6">{{item.odds.oOdd.o6}}</div>
@@ -186,18 +184,575 @@
                 'o6': '0.07'
             }
         }
-    }];
-    listData.forEach(function(item){
+    }, {
+        'dayrow': '',
+        'team': {
+            'status': {
+                'time': '21:00',
+                'gameName': 'Giải Hạng 2 Nga'
+            }
+        },
+        'homeTeam': {
+            'name': 'Metallurg Lipetsk',
+            'score': '[14]',
+            'redCard': '',
+            'yellowCard': '1'
+        },
+        'guestTeam': {
+            'name': 'Rotor Volgograd',
+            'score': '[12]',
+            'redCard': '',
+            'yellowCard': ''
+        },
+        'timeScore': {
+            'htit': 'HT',
+            'homeOdd': '0',
+            'guestOdd': '0'
+        },
+        'score': {
+            'state': '90+',
+            'homeS': '0',
+            'guestS': '1'
+        },
+        'odds': {
+            'corner': '3-6',
+            'lOdd': {
+                'o1': '-0.68',
+                'o2': '0',
+                'o3': '0.56'
+            },
+            'oOdd': {
+                'o4': '-0.33',
+                'o5': '1.5',
+                'o6': '0.21'
+            }
+        }
+    }, {
+        'dayrow': '',
+        'team': {
+            'status': {
+                'time': '21:00',
+                'gameName': 'VĐQG  Ba Lan'
+            }
+        },
+        'homeTeam': {
+            'name': 'Pogon Szczecin',
+            'score': '[5]',
+            'redCard': '',
+            'yellowCard': ''
+        },
+        'guestTeam': {
+            'name': 'Piast Gliwice',
+            'score': '[9]',
+            'redCard': '',
+            'yellowCard': '1'
+        },
+        'timeScore': {
+            'htit': 'HT',
+            'homeOdd': '1',
+            'guestOdd': '0'
+        },
+        'score': {
+            'state': '90+',
+            'homeS': '1',
+            'guestS': '0'
+        },
+        'odds': {
+            'corner': '4-8',
+            'lOdd': {
+                'o1': '0.96',
+                'o2': '0',
+                'o3': '0.96'
+            },
+            'oOdd': {
+                'o4': '-0.15',
+                'o5': '1.5',
+                'o6': '0.07'
+            }
+        }
+    }, {
+        'dayrow': '',
+        'team': {
+            'status': {
+                'time': '21:00',
+                'gameName': 'Giải Hạng 2 Nga'
+            }
+        },
+        'homeTeam': {
+            'name': 'Metallurg Lipetsk',
+            'score': '[14]',
+            'redCard': '',
+            'yellowCard': '1'
+        },
+        'guestTeam': {
+            'name': 'Rotor Volgograd',
+            'score': '[12]',
+            'redCard': '',
+            'yellowCard': ''
+        },
+        'timeScore': {
+            'htit': 'HT',
+            'homeOdd': '0',
+            'guestOdd': '0'
+        },
+        'score': {
+            'state': '90+',
+            'homeS': '0',
+            'guestS': '1'
+        },
+        'odds': {
+            'corner': '3-6',
+            'lOdd': {
+                'o1': '-0.68',
+                'o2': '0',
+                'o3': '0.56'
+            },
+            'oOdd': {
+                'o4': '-0.33',
+                'o5': '1.5',
+                'o6': '0.21'
+            }
+        }
+    }, {
+        'dayrow': '',
+        'team': {
+            'status': {
+                'time': '21:00',
+                'gameName': 'VĐQG  Ba Lan'
+            }
+        },
+        'homeTeam': {
+            'name': 'Pogon Szczecin',
+            'score': '[5]',
+            'redCard': '',
+            'yellowCard': ''
+        },
+        'guestTeam': {
+            'name': 'Piast Gliwice',
+            'score': '[9]',
+            'redCard': '',
+            'yellowCard': '1'
+        },
+        'timeScore': {
+            'htit': 'HT',
+            'homeOdd': '1',
+            'guestOdd': '0'
+        },
+        'score': {
+            'state': '90+',
+            'homeS': '1',
+            'guestS': '0'
+        },
+        'odds': {
+            'corner': '4-8',
+            'lOdd': {
+                'o1': '0.96',
+                'o2': '0',
+                'o3': '0.96'
+            },
+            'oOdd': {
+                'o4': '-0.15',
+                'o5': '1.5',
+                'o6': '0.07'
+            }
+        }
+    }, {
+        'dayrow': '',
+        'team': {
+            'status': {
+                'time': '21:00',
+                'gameName': 'Giải Hạng 2 Nga'
+            }
+        },
+        'homeTeam': {
+            'name': 'Metallurg Lipetsk',
+            'score': '[14]',
+            'redCard': '',
+            'yellowCard': '1'
+        },
+        'guestTeam': {
+            'name': 'Rotor Volgograd',
+            'score': '[12]',
+            'redCard': '',
+            'yellowCard': ''
+        },
+        'timeScore': {
+            'htit': 'HT',
+            'homeOdd': '0',
+            'guestOdd': '0'
+        },
+        'score': {
+            'state': '90+',
+            'homeS': '0',
+            'guestS': '1'
+        },
+        'odds': {
+            'corner': '3-6',
+            'lOdd': {
+                'o1': '-0.68',
+                'o2': '0',
+                'o3': '0.56'
+            },
+            'oOdd': {
+                'o4': '-0.33',
+                'o5': '1.5',
+                'o6': '0.21'
+            }
+        }
+    }, {
+        'dayrow': '',
+        'team': {
+            'status': {
+                'time': '21:00',
+                'gameName': 'VĐQG  Ba Lan'
+            }
+        },
+        'homeTeam': {
+            'name': 'Pogon Szczecin',
+            'score': '[5]',
+            'redCard': '',
+            'yellowCard': ''
+        },
+        'guestTeam': {
+            'name': 'Piast Gliwice',
+            'score': '[9]',
+            'redCard': '',
+            'yellowCard': '1'
+        },
+        'timeScore': {
+            'htit': 'HT',
+            'homeOdd': '1',
+            'guestOdd': '0'
+        },
+        'score': {
+            'state': '90+',
+            'homeS': '1',
+            'guestS': '0'
+        },
+        'odds': {
+            'corner': '4-8',
+            'lOdd': {
+                'o1': '0.96',
+                'o2': '0',
+                'o3': '0.96'
+            },
+            'oOdd': {
+                'o4': '-0.15',
+                'o5': '1.5',
+                'o6': '0.07'
+            }
+        }
+    }, {
+        'dayrow': '',
+        'team': {
+            'status': {
+                'time': '21:00',
+                'gameName': 'VĐQG  Ba Lan'
+            }
+        },
+        'homeTeam': {
+            'name': 'Pogon Szczecin',
+            'score': '[5]',
+            'redCard': '',
+            'yellowCard': ''
+        },
+        'guestTeam': {
+            'name': 'Piast Gliwice',
+            'score': '[9]',
+            'redCard': '',
+            'yellowCard': '1'
+        },
+        'timeScore': {
+            'htit': 'HT',
+            'homeOdd': '1',
+            'guestOdd': '0'
+        },
+        'score': {
+            'state': '90+',
+            'homeS': '1',
+            'guestS': '0'
+        },
+        'odds': {
+            'corner': '4-8',
+            'lOdd': {
+                'o1': '0.96',
+                'o2': '0',
+                'o3': '0.96'
+            },
+            'oOdd': {
+                'o4': '-0.15',
+                'o5': '1.5',
+                'o6': '0.07'
+            }
+        }
+    }, {
+        'dayrow': '',
+        'team': {
+            'status': {
+                'time': '21:00',
+                'gameName': 'Giải Hạng 2 Nga'
+            }
+        },
+        'homeTeam': {
+            'name': 'Metallurg Lipetsk',
+            'score': '[14]',
+            'redCard': '',
+            'yellowCard': '1'
+        },
+        'guestTeam': {
+            'name': 'Rotor Volgograd',
+            'score': '[12]',
+            'redCard': '',
+            'yellowCard': ''
+        },
+        'timeScore': {
+            'htit': 'HT',
+            'homeOdd': '0',
+            'guestOdd': '0'
+        },
+        'score': {
+            'state': '90+',
+            'homeS': '0',
+            'guestS': '1'
+        },
+        'odds': {
+            'corner': '3-6',
+            'lOdd': {
+                'o1': '-0.68',
+                'o2': '0',
+                'o3': '0.56'
+            },
+            'oOdd': {
+                'o4': '-0.33',
+                'o5': '1.5',
+                'o6': '0.21'
+            }
+        }
+    }, {
+        'dayrow': '',
+        'team': {
+            'status': {
+                'time': '21:00',
+                'gameName': 'VĐQG  Ba Lan'
+            }
+        },
+        'homeTeam': {
+            'name': 'Pogon Szczecin',
+            'score': '[5]',
+            'redCard': '',
+            'yellowCard': ''
+        },
+        'guestTeam': {
+            'name': 'Piast Gliwice',
+            'score': '[9]',
+            'redCard': '',
+            'yellowCard': '1'
+        },
+        'timeScore': {
+            'htit': 'HT',
+            'homeOdd': '1',
+            'guestOdd': '0'
+        },
+        'score': {
+            'state': '90+',
+            'homeS': '1',
+            'guestS': '0'
+        },
+        'odds': {
+            'corner': '4-8',
+            'lOdd': {
+                'o1': '0.96',
+                'o2': '0',
+                'o3': '0.96'
+            },
+            'oOdd': {
+                'o4': '-0.15',
+                'o5': '1.5',
+                'o6': '0.07'
+            }
+        }
+    }, {
+        'dayrow': '',
+        'team': {
+            'status': {
+                'time': '21:00',
+                'gameName': 'Giải Hạng 2 Nga'
+            }
+        },
+        'homeTeam': {
+            'name': 'Metallurg Lipetsk',
+            'score': '[14]',
+            'redCard': '',
+            'yellowCard': '1'
+        },
+        'guestTeam': {
+            'name': 'Rotor Volgograd',
+            'score': '[12]',
+            'redCard': '',
+            'yellowCard': ''
+        },
+        'timeScore': {
+            'htit': 'HT',
+            'homeOdd': '0',
+            'guestOdd': '0'
+        },
+        'score': {
+            'state': '90+',
+            'homeS': '0',
+            'guestS': '1'
+        },
+        'odds': {
+            'corner': '3-6',
+            'lOdd': {
+                'o1': '-0.68',
+                'o2': '0',
+                'o3': '0.56'
+            },
+            'oOdd': {
+                'o4': '-0.33',
+                'o5': '1.5',
+                'o6': '0.21'
+            }
+        }
+    }, {
+        'dayrow': '',
+        'team': {
+            'status': {
+                'time': '21:00',
+                'gameName': 'VĐQG  Ba Lan'
+            }
+        },
+        'homeTeam': {
+            'name': 'Pogon Szczecin',
+            'score': '[5]',
+            'redCard': '',
+            'yellowCard': ''
+        },
+        'guestTeam': {
+            'name': 'Piast Gliwice',
+            'score': '[9]',
+            'redCard': '',
+            'yellowCard': '1'
+        },
+        'timeScore': {
+            'htit': 'HT',
+            'homeOdd': '1',
+            'guestOdd': '0'
+        },
+        'score': {
+            'state': '90+',
+            'homeS': '1',
+            'guestS': '0'
+        },
+        'odds': {
+            'corner': '4-8',
+            'lOdd': {
+                'o1': '0.96',
+                'o2': '0',
+                'o3': '0.96'
+            },
+            'oOdd': {
+                'o4': '-0.15',
+                'o5': '1.5',
+                'o6': '0.07'
+            }
+        }
+    }, {
+        'dayrow': '',
+        'team': {
+            'status': {
+                'time': '21:00',
+                'gameName': 'Giải Hạng 2 Nga'
+            }
+        },
+        'homeTeam': {
+            'name': 'Metallurg Lipetsk',
+            'score': '[14]',
+            'redCard': '',
+            'yellowCard': '1'
+        },
+        'guestTeam': {
+            'name': 'Rotor Volgograd',
+            'score': '[12]',
+            'redCard': '',
+            'yellowCard': ''
+        },
+        'timeScore': {
+            'htit': 'HT',
+            'homeOdd': '0',
+            'guestOdd': '0'
+        },
+        'score': {
+            'state': '90+',
+            'homeS': '0',
+            'guestS': '1'
+        },
+        'odds': {
+            'corner': '3-6',
+            'lOdd': {
+                'o1': '-0.68',
+                'o2': '0',
+                'o3': '0.56'
+            },
+            'oOdd': {
+                'o4': '-0.33',
+                'o5': '1.5',
+                'o6': '0.21'
+            }
+        }
+    }, {
+        'dayrow': '',
+        'team': {
+            'status': {
+                'time': '21:00',
+                'gameName': 'VĐQG  Ba Lan'
+            }
+        },
+        'homeTeam': {
+            'name': 'Pogon Szczecin',
+            'score': '[5]',
+            'redCard': '',
+            'yellowCard': ''
+        },
+        'guestTeam': {
+            'name': 'Piast Gliwice',
+            'score': '[9]',
+            'redCard': '',
+            'yellowCard': '1'
+        },
+        'timeScore': {
+            'htit': 'HT',
+            'homeOdd': '1',
+            'guestOdd': '0'
+        },
+        'score': {
+            'state': '90+',
+            'homeS': '1',
+            'guestS': '0'
+        },
+        'odds': {
+            'corner': '4-8',
+            'lOdd': {
+                'o1': '0.96',
+                'o2': '0',
+                'o3': '0.96'
+            },
+            'oOdd': {
+                'o4': '-0.15',
+                'o5': '1.5',
+                'o6': '0.07'
+            }
+        }
+    }, ];
+
+    listData.forEach(function(item) {
         item.follow = false;
     });
 
     var app = new Vue({
         el: '#gameList',
         data: {
-            listData: listData
+            listData: listData,
         },
-        methods:{
-
-        }  
     })
 </script>

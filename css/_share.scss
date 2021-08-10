@@ -206,9 +206,19 @@ img {
             }
         }
     }
+
 }
 
 .gameList {
+    height: calc(100vh - 130px);
+    overflow-y: auto;
+    &::-webkit-scrollbar{
+        width: 10px;
+        background-color: #fff;
+    }
+    &::-webkit-scrollbar-thumb{
+        background-color: #f25a0a;
+    }
     ul{
         display: flex;
         flex-direction: column;
@@ -218,7 +228,7 @@ img {
         display: flex;
         flex-direction: column;
         &.on{
-            order: -2;
+            order: -1;
         }
     }
 
@@ -230,6 +240,7 @@ img {
         @include pos(tl,0);
         transform: scaleY(0.5);
     }
+
     @at-root .gameDayrow {
         height: 25px;
         line-height: 25px;
@@ -237,6 +248,7 @@ img {
         background-color: #f3f3f3;
         color: #999;
     }
+
     @at-root .gameItem {
         padding: 0 3px;
         font-size: 0.6rem;
