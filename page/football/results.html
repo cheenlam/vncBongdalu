@@ -1,0 +1,204 @@
+<div class="gameList" id="gameList">
+    <ul>
+        <li v-for="(item,index) in listData" :class="{ 'on': item.follow && item.dayrow == ''}">
+            <div class="gameDayrow" v-if="item.dayrow != ''">{{item.dayrow}}</div>
+            <div class="gameItem" :class="{ 'on': item.follow}">
+                <div class="team">
+                    <div class="status">
+                        <p>{{item.team.status.time}}<span>{{item.team.status.gameName}}</span></p>
+                    </div>
+                    <div class="homeTeam">
+                        <p>{{item.homeTeam.name}}<span>{{item.homeTeam.score}}</span></p>
+                        <div class="redCard" v-if="item.homeTeam.redCard != ''">{{item.homeTeam.redCard}}</div>
+                        <div class="yellowCard" v-if="item.homeTeam.yellowCard != ''">{{item.homeTeam.yellowCard}}</div>
+                    </div>
+                    <div class="guestTeam">
+                        <p>{{item.guestTeam.name}}<span>{{item.guestTeam.score}}</span></p>
+                        <div class="redCard" v-if="item.guestTeam.redCard != ''">{{item.guestTeam.redCard}}</div>
+                        <div class="yellowCard" v-if="item.guestTeam.yellowCard != ''">{{item.guestTeam.yellowCard}}</div>
+                    </div>
+                </div>
+                <div class="timeScore">
+                    <div class="htit">{{item.timeScore.htit}}</div>
+                    <div>{{item.timeScore.homeOdd}}</div>
+                    <div>{{item.timeScore.guestOdd}}</div>
+                </div>
+                <div class="score">
+                    <div>{{item.score.state}}</div>
+                    <div>{{item.score.homeS}}</div>
+                    <div>{{item.score.guestS}}</div>
+                </div>
+                <div class="odds">
+                    <div class="corner">
+                        <div class="icon_flag"></div>
+                        <span>{{item.odds.corner}}</span>
+                    </div>
+                    <div class="o1">{{item.odds.lOdd.o1}}</div>
+                    <div class="o4">{{item.odds.oOdd.o4}}</div>
+                </div>
+                <div class="odds">
+                    <div></div>
+                    <div class="o2">{{item.odds.lOdd.o2}}</div>
+                    <div class="o5">{{item.odds.oOdd.o5}}</div>
+                </div>
+                <div class="odds">
+                    <div class="follow"  @click="item.follow = !item.follow">
+                        <div class="icon_star" 
+                        :class="{ 'on': item.follow}"
+                       ></div>
+                    </div>
+                    <div class="o3">{{item.odds.lOdd.o3}}</div>
+                    <div class="o6">{{item.odds.oOdd.o6}}</div>
+                </div>
+            </div>
+        </li>
+    </ul>
+</div>
+
+
+<script>
+    var listData = [{
+        'dayrow': '09/08/2021(Thứ hai)',
+        'team': {
+            'status': {
+                'time': '18:30',
+                'gameName': 'CHA CSL'
+            }
+        },
+        'homeTeam': {
+            'name': 'Tianjin Tigers(N)',
+            'score': '[8]',
+            'redCard': '1',
+            'yellowCard': '2'
+        },
+        'guestTeam': {
+            'name': 'Beijing Guoan',
+            'score': '[4]',
+            'redCard': '1',
+            'yellowCard': '3'
+        },
+        'timeScore': {
+            'htit': 'HT',
+            'homeOdd': '1',
+            'guestOdd': '0'
+        },
+        'score': {
+            'state': 'Hết            ',
+            'homeS': '3',
+            'guestS': '1'
+        },
+        'odds': {
+            'corner': '3-5',
+            'lOdd': {
+                'o1': '-0.97',
+                'o2': '-1/1.5',
+                'o3': '0.83'
+            },
+            'oOdd': {
+                'o4': '0.88',
+                'o5': '2.5',
+                'o6': '0.98'
+            }
+        }
+    }, {
+        'dayrow': '',
+        'team': {
+            'status': {
+                'time': '18:00',
+                'gameName': 'JPN D1'
+            }
+        },
+        'homeTeam': {
+            'name': 'Avispa Fukuoka',
+            'score': '[11]',
+            'redCard': '1',
+            'yellowCard': '3'
+        },
+        'guestTeam': {
+            'name': 'Sanfrecce Hiroshima',
+            'score': '[9]',
+            'redCard': '',
+            'yellowCard': '2'
+        },
+        'timeScore': {
+            'htit': 'HT',
+            'homeOdd': '0',
+            'guestOdd': '0'
+        },
+        'score': {
+            'state': 'Hết            ',
+            'homeS': '1',
+            'guestS': '1'
+        },
+        'odds': {
+            'corner': '2-3',
+            'lOdd': {
+                'o1': '0.88',
+                'o2': '-0.5',
+                'o3': '0.98'
+            },
+            'oOdd': {
+                'o4': '0.85',
+                'o5': '2',
+                'o6': '1.00'
+            }
+        }
+    }, {
+        'dayrow': '',
+        'team': {
+            'status': {
+                'time': '18:00',
+                'gameName': 'JPN D1'
+            }
+        },
+        'homeTeam': {
+            'name': 'Cerezo Osaka',
+            'score': '[12]',
+            'redCard': '',
+            'yellowCard': '1'
+        },
+        'guestTeam': {
+            'name': 'Vegalta Sendai',
+            'score': '[18]',
+            'redCard': '',
+            'yellowCard': '1'
+        },
+        'timeScore': {
+            'htit': 'HT',
+            'homeOdd': '0',
+            'guestOdd': '0'
+        },
+        'score': {
+            'state': 'Hết            ',
+            'homeS': '0',
+            'guestS': '0'
+        },
+        'odds': {
+            'corner': '5-4',
+            'lOdd': {
+                'o1': '0.93',
+                'o2': '0.5/1',
+                'o3': '0.93'
+            },
+            'oOdd': {
+                'o4': '0.98',
+                'o5': '2.5',
+                'o6': '0.88'
+            }
+        }
+    }];
+
+    listData.forEach(function(item){
+        item.follow = false;
+    });
+
+    var app = new Vue({
+        el: '#gameList',
+        data: {
+            listData: listData
+        },
+        methods:{
+
+        }  
+    })
+</script>

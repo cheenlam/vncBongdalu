@@ -1,0 +1,22 @@
+// 定位position參數
+@mixin pos($direction, $val...) {
+    position: absolute;
+    $result: ();
+    $data: to-upper-case($direction);
+    @for $i from 1 through str-length($data) {
+        $result: append($result, str-slice($data, $i, $i));
+        #{pos-chtext(nth($result, $i))}: #{if(length($val) ==1, $val, nth($val, $i))};
+    }
+}
+
+@function pos-chtext($data) {
+    @if $data== "T" {
+        @return top;
+    } @else if $data== "R" {
+        @return right;
+    } @else if $data== "B" {
+        @return bottom;
+    } @else if $data== "L" {
+        @return left;
+    }
+}

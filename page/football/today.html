@@ -1,0 +1,204 @@
+<div class="gameList" id="gameList">
+    <ul>
+        <li v-for="(item,index) in listData" :class="{ 'on': item.follow && item.dayrow == ''}">
+            <div class="gameDayrow" v-if="item.dayrow != ''">{{item.dayrow}}</div>
+            <div class="gameItem" :class="{ 'on': item.follow}">
+                <div class="team">
+                    <div class="status">
+                        <p>{{item.team.status.time}}<span>{{item.team.status.gameName}}</span></p>
+                    </div>
+                    <div class="homeTeam">
+                        <p>{{item.homeTeam.name}}<span>{{item.homeTeam.score}}</span></p>
+                        <div class="redCard" v-if="item.homeTeam.redCard != '\n'">{{item.homeTeam.redCard}}</div>
+                        <div class="yellowCard" v-if="item.homeTeam.yellowCard != '\n'">{{item.homeTeam.yellowCard}}</div>
+                    </div>
+                    <div class="guestTeam">
+                        <p>{{item.guestTeam.name}}<span>{{item.guestTeam.score}}</span></p>
+                        <div class="redCard" v-if="item.guestTeam.redCard != '\n'">{{item.guestTeam.redCard}}</div>
+                        <div class="yellowCard" v-if="item.guestTeam.yellowCard != '\n'">{{item.guestTeam.yellowCard}}</div>
+                    </div>
+                </div>
+                <div class="timeScore">
+                    <div class="htit">{{item.timeScore.htit}}</div>
+                    <div>{{item.timeScore.homeOdd}}</div>
+                    <div>{{item.timeScore.guestOdd}}</div>
+                </div>
+                <div class="score">
+                    <div>{{item.score.state}}</div>
+                    <div>{{item.score.homeS}}</div>
+                    <div>{{item.score.guestS}}</div>
+                </div>
+                <div class="odds">
+                    <div class="corner">
+                        <div class="icon_flag"></div>
+                        <span>{{item.odds.corner}}</span>
+                    </div>
+                    <div class="o1">{{item.odds.lOdd.o1}}</div>
+                    <div class="o4">{{item.odds.oOdd.o4}}</div>
+                </div>
+                <div class="odds">
+                    <div></div>
+                    <div class="o2">{{item.odds.lOdd.o2}}</div>
+                    <div class="o5">{{item.odds.oOdd.o5}}</div>
+                </div>
+                <div class="odds">
+                    <div class="follow"  @click="item.follow = !item.follow">
+                        <div class="icon_star" 
+                        :class="{ 'on': item.follow}"
+                       ></div>
+                    </div>
+                    <div class="o3">{{item.odds.lOdd.o3}}</div>
+                    <div class="o6">{{item.odds.oOdd.o6}}</div>
+                </div>
+            </div>
+        </li>
+    </ul>
+</div>
+
+
+
+<script>
+    var listData = [{
+        'dayrow': '',
+        'team': {
+            'status': {
+                'time': '01:00',
+                'gameName': 'POR D1'
+            }
+        },
+        'homeTeam': {
+            'name': 'FC Porto',
+            'score': '[2]',
+            'redCard': '\n',
+            'yellowCard': '\n2\n'
+        },
+        'guestTeam': {
+            'name': 'Belenenses',
+            'score': '[10]',
+            'redCard': '\n',
+            'yellowCard': '\n3\n'
+        },
+        'timeScore': {
+            'htit': 'HT',
+            'homeOdd': '1',
+            'guestOdd': '0'
+        },
+        'score': {
+            'state': 'Hết',
+            'homeS': '2',
+            'guestS': '0'
+        },
+        'odds': {
+            'corner': '8-3',
+            'lOdd': {
+                'o1': '0.86',
+                'o2': '2',
+                'o3': '-0.94'
+            },
+            'oOdd': {
+                'o4': '0.84',
+                'o5': '3',
+                'o6': '-0.94'
+            }
+        }
+    }, {
+        'dayrow': '',
+        'team': {
+            'status': {
+                'time': '01:00',
+                'gameName': 'RUS PR'
+            }
+        },
+        'homeTeam': {
+            'name': 'Dinamo Moscow',
+            'score': '[5]',
+            'redCard': '\n',
+            'yellowCard': '\n3\n'
+        },
+        'guestTeam': {
+            'name': 'CSKA Moscow',
+            'score': '[8]',
+            'redCard': '\n',
+            'yellowCard': '\n1\n'
+        },
+        'timeScore': {
+            'htit': 'HT',
+            'homeOdd': '0',
+            'guestOdd': '1'
+        },
+        'score': {
+            'state': 'Hết',
+            'homeS': '2',
+            'guestS': '1'
+        },
+        'odds': {
+            'corner': '5-1',
+            'lOdd': {
+                'o1': '0.88',
+                'o2': '0',
+                'o3': '-0.96'
+            },
+            'oOdd': {
+                'o4': '-0.96',
+                'o5': '2.5',
+                'o6': '0.86'
+            }
+        }
+    }, {
+        'dayrow': '',
+        'team': {
+            'status': {
+                'time': '01:00',
+                'gameName': 'RUS PR'
+            }
+        },
+        'homeTeam': {
+            'name': 'Rubin Kazan',
+            'score': '[4]',
+            'redCard': '\n',
+            'yellowCard': '\n4\n'
+        },
+        'guestTeam': {
+            'name': 'FC Terek Groznyi',
+            'score': '[7]',
+            'redCard': '\n1\n',
+            'yellowCard': '\n4\n'
+        },
+        'timeScore': {
+            'htit': 'HT',
+            'homeOdd': '0',
+            'guestOdd': '1'
+        },
+        'score': {
+            'state': 'Hết',
+            'homeS': '2',
+            'guestS': '1'
+        },
+        'odds': {
+            'corner': '6-4',
+            'lOdd': {
+                'o1': '0.94',
+                'o2': '0/0.5',
+                'o3': '0.98'
+            },
+            'oOdd': {
+                'o4': '-0.93',
+                'o5': '2.5',
+                'o6': '0.83'
+            }
+        }
+    }];
+    listData.forEach(function(item){
+        item.follow = false;
+    });
+
+    var app = new Vue({
+        el: '#gameList',
+        data: {
+            listData: listData
+        },
+        methods:{
+
+        }  
+    })
+</script>

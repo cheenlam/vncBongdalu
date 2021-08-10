@@ -1,0 +1,345 @@
+img {
+    width: 100%;
+    vertical-align: middle;
+}
+
+.mainBox {
+    max-width: 700px;
+    margin: auto;
+    font-size: 0.9rem;
+}
+
+// ==== header start ====
+.header {
+    background-color: #f25a0a;
+    // hd_top start
+    @at-root .hd_top {
+        padding: 0 20px;
+        height: 50px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        @at-root .hd_logo {
+            width: 90px;
+            opacity: 0.8;
+            cursor: pointer;
+            a {
+                display: block;
+            }
+        }
+        @at-root .hd_select {
+            position: relative;
+            .icon {
+                width: 22px;
+                height: 22px;
+                margin-right: 5px;
+                background-repeat: no-repeat;
+                background-size: cover;
+                background-position: center;
+                display: inline-block;
+                flex-shrink: 0;
+            }
+            .txt {
+                white-space: nowrap;
+            }
+            @at-root .hd_checked {
+                height: 30px;
+                line-height: 30px;
+                padding: 0 10px;
+                color: #fff;
+                background-color: #ec6941;
+                display: inline-block;
+                border-radius: 5px;
+                box-shadow: 1px 1px 4px #c25432;
+                cursor: pointer;
+                &.on + .hd_selList {
+                    display: block;
+                }
+
+                .icon.football {
+                    background-image: url(../images/icon/football.png);
+                }
+                .icon.basketball {
+                    background-image: url(../images/icon/basketball.png);
+                }
+                .icon.esports {
+                    background-image: url(../images/icon/esports.png);
+                }
+                .title {
+                    display: flex;
+                    align-items: center;
+                    position: relative;
+                    &::after {
+                        content: "";
+                        width: 0;
+                        height: 0;
+                        margin-left: 10px;
+                        border-left: 4px solid transparent;
+                        border-right: 4px solid transparent;
+                        border-top: 5px solid #fff;
+                    }
+                }
+            }
+            @at-root .hd_selList {
+                background-color: #fff;
+                @include pos(tr, 35px, 0);
+                box-shadow: 0 0 4px #000;
+                border-radius: 5px;
+                z-index: 5;
+                display: none;
+                &::before {
+                    content: "";
+                    width: 0;
+                    height: 0;
+                    transform: rotate(-45deg) translateX(-5px);
+                    border: solid 5px #fff;
+                    border-left-color: transparent;
+                    border-bottom-color: transparent;
+                    @include pos(tr, -8px, 20px);
+                }
+                li {
+                    color: #333;
+                    position: relative;
+                    cursor: pointer;
+                    a {
+                        padding: 8px 15px;
+                        display: flex;
+                        align-items: center;
+                    }
+                }
+                li + li::before {
+                    content: "";
+                    width: 100%;
+                    height: 1px;
+                    background-color: #b2b2b2;
+                    @include pos(tl, 0);
+                    transform: scaleY(0.5);
+                }
+
+                .icon.football {
+                    background-image: url(../images/icon/football_grey.png);
+                }
+                .icon.basketball {
+                    background-image: url(../images/icon/basketball_grey.png);
+                }
+                .icon.esports {
+                    background-image: url(../images/icon/esports_grey.png);
+                }
+
+                .count {
+                    min-width: 25px;
+                    padding: 0 6px;
+                    margin-left: 10px;
+                    height: 20px;
+                    line-height: 22px;
+                    text-align: center;
+                    border-radius: 20px;
+                    background-color: #b2b2b2;
+                    color: #fff;
+                    font-size: 0.8rem;
+                }
+            }
+        }
+    }
+}
+
+// ==== content start ====
+.content {
+    color: #333;
+    @at-root .mainSort {
+        ul {
+            display: flex;
+            background-color: #7d7d7d;
+            color: #fff;
+        }
+        li {
+            height: 35px;
+            line-height: 35px;
+            flex: 1;
+            text-align: center;
+            position: relative;
+            cursor: pointer;
+            &.on {
+                font-weight: bold;
+            }
+            &.on::before {
+                content: "";
+                width: 0;
+                height: 0;
+                transform: rotate(-45deg) translateX(-7px);
+                @include pos(bl, 0, 50%);
+                border: solid 4px #fff;
+                border-left-color: transparent;
+                border-bottom-color: transparent;
+            }
+
+            a {
+                display: block;
+            }
+        }
+    }
+
+    @at-root .scoreTools {
+        ul {
+            display: flex;
+            background-color: #fff;
+            border-bottom: 1px solid #ccc;
+        }
+        li {
+            height: 35px;
+            line-height: 35px;
+            flex: 1;
+            text-align: center;
+            position: relative;
+            cursor: pointer;
+            position: relative;
+            &.on::before {
+                content: "";
+                width: 70%;
+                height: 2px;
+                margin: auto;
+                background-color: #f25a0a;
+                @include pos(blr, 0);
+            }
+            a {
+                display: block;
+            }
+        }
+    }
+}
+
+.gameList {
+    ul{
+        display: flex;
+        flex-direction: column;
+    }
+    li{
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        &.on{
+            order: -2;
+        }
+    }
+
+    li+li::before{
+        content: '';
+        width: 100%;
+        height: 1px;
+        background-color: #ccc;
+        @include pos(tl,0);
+        transform: scaleY(0.5);
+    }
+    @at-root .gameDayrow {
+        height: 25px;
+        line-height: 25px;
+        text-align: center;
+        background-color: #f3f3f3;
+        color: #999;
+    }
+    @at-root .gameItem {
+        padding: 0 3px;
+        font-size: 0.6rem;
+        display: flex;
+        &.on{
+            order: -1;
+        }
+        .team {
+            width: 100%;
+            flex-shrink: 1;
+            & > div {
+               height: 22px;
+               line-height: 22px;
+               padding: 0 4px;
+            }
+        }    
+
+        .odds,
+        .score,
+        .timeScore{
+            flex-shrink: 0;
+            & > div {
+                min-width: 30px;
+                height: 22px;
+                line-height: 22px;
+                text-align: center;
+            }
+        }
+
+        .status {
+            span {
+                color: #f25a0a;
+                padding-left: 5px;
+            }
+        }
+        .guestTeam,
+        .homeTeam {
+            display: flex;
+            span {
+                padding-left: 2px;
+                padding-right: 5px;
+                color: #828282;
+            }
+            .redCard,
+            .yellowCard {
+                height: 18px;
+                line-height: 20px;
+                padding: 0 2px;
+                display: inline;
+                border-radius: 2px;
+                color: #fff;
+                text-align: center;
+                position: relative;
+            }
+            .redCard {
+                background-color: #f00;
+            }
+            .yellowCard {
+                background-color: #f9c203;
+                margin-left: 3px;
+            }
+        }
+        .timeScore{
+           .htit{
+               color: #b4b4b4;
+           }
+        }
+        .score{
+            color: #0ea922;
+        }
+        .odds{
+            .corner{
+                width: 40px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                color: #929292;
+                @at-root .icon_flag{
+                    width: 12px;
+                    height: 12px;
+                    margin-right: 1px;
+                    background: url(../images/icon/flag.png)no-repeat center/cover;
+                }
+            }
+            .follow{
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                cursor: pointer;
+                @at-root .icon_star{
+                    width: 15px;
+                    height: 15px;
+                    background: url(../images/icon/star.svg)no-repeat center/cover;
+                    &.on{
+                        background-image: url(../images/icon/star_on.svg);
+                    }
+                }
+            }
+           
+            .o2{
+               color: #0972bf; 
+            }
+           
+        }
+    }
+}

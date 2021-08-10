@@ -1,0 +1,566 @@
+html, body, div, span, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, font, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, caption {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  outline: 0;
+  font-size: 100%;
+  vertical-align: baseline;
+  background: transparent;
+}
+
+html, body {
+  width: 100%;
+  height: 100%;
+}
+
+ol, ul {
+  list-style: none;
+}
+
+h1, h2, h3, h4, h5, h6, th {
+  font-weight: normal;
+}
+
+a, a:hover {
+  text-decoration: none;
+  color: inherit;
+}
+
+* {
+  font-family: 'Helvetica', sans-serif;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  -webkit-touch-callout: none;
+  -webkit-text-size-adjust: none;
+}
+
+*:hover, *:focus, *:active {
+  outline: 0;
+  -webkit-tap-highlight-color: transparent;
+}
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+tt, em {
+  font-family: 'Helvetica', sans-serif;
+}
+
+input[type=number]::-webkit-inner-spin-button,
+input[type=number]::-webkit-outer-spin-button,
+input[type="button"],
+input[type="text"],
+input[type="number"],
+textarea {
+  outline: none;
+  font-family: 'Helvetica', sans-serif;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  -ms-appearance: none;
+  appearance: none;
+}
+
+input::-ms-clear {
+  display: none;
+}
+
+input::-ms-reveal {
+  display: none;
+}
+
+input[type="password"]::-webkit-textfield-decoration-container {
+  visibility: hidden;
+}
+
+.nofloat:after {
+  content: '';
+  display: table;
+  clear: both;
+}
+
+/* ::-webkit-scrollbar{ 
+	width:10px;
+	height: 10px;
+	background-color:#f1f1f1;
+} */
+::-webkit-scrollbar-thumb {
+  background-color: #c1c1c1;
+  border: 3px #f1f1f1 solid;
+  border-radius: 10px;
+  cursor: pointer;
+  -webkit-transition: background .5s linear;
+  transition: background .5s linear;
+}
+
+*:hover::-webkit-scrollbar-thumb {
+  background-color: #a9a9a9;
+}
+
+::-webkit-scrollbar-corner {
+  background-color: #f1f1f1;
+}
+
+img {
+  width: 100%;
+  vertical-align: middle;
+}
+
+img {
+  width: 100%;
+  vertical-align: middle;
+}
+
+.mainBox {
+  max-width: 700px;
+  margin: auto;
+  font-size: 0.9rem;
+}
+
+.header {
+  background-color: #f25a0a;
+}
+
+.hd_top {
+  padding: 0 20px;
+  height: 50px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+.hd_logo {
+  width: 90px;
+  opacity: 0.8;
+  cursor: pointer;
+}
+
+.hd_logo a {
+  display: block;
+}
+
+.hd_select {
+  position: relative;
+}
+
+.hd_select .icon {
+  width: 22px;
+  height: 22px;
+  margin-right: 5px;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  display: inline-block;
+  -ms-flex-negative: 0;
+      flex-shrink: 0;
+}
+
+.hd_select .txt {
+  white-space: nowrap;
+}
+
+.hd_checked {
+  height: 30px;
+  line-height: 30px;
+  padding: 0 10px;
+  color: #fff;
+  background-color: #ec6941;
+  display: inline-block;
+  border-radius: 5px;
+  -webkit-box-shadow: 1px 1px 4px #c25432;
+          box-shadow: 1px 1px 4px #c25432;
+  cursor: pointer;
+}
+
+.hd_checked.on + .hd_selList {
+  display: block;
+}
+
+.hd_checked .icon.football {
+  background-image: url(../images/icon/football.png);
+}
+
+.hd_checked .icon.basketball {
+  background-image: url(../images/icon/basketball.png);
+}
+
+.hd_checked .icon.esports {
+  background-image: url(../images/icon/esports.png);
+}
+
+.hd_checked .title {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  position: relative;
+}
+
+.hd_checked .title::after {
+  content: "";
+  width: 0;
+  height: 0;
+  margin-left: 10px;
+  border-left: 4px solid transparent;
+  border-right: 4px solid transparent;
+  border-top: 5px solid #fff;
+}
+
+.hd_selList {
+  background-color: #fff;
+  position: absolute;
+  top: 35px;
+  right: 0;
+  -webkit-box-shadow: 0 0 4px #000;
+          box-shadow: 0 0 4px #000;
+  border-radius: 5px;
+  z-index: 5;
+  display: none;
+}
+
+.hd_selList::before {
+  content: "";
+  width: 0;
+  height: 0;
+  -webkit-transform: rotate(-45deg) translateX(-5px);
+          transform: rotate(-45deg) translateX(-5px);
+  border: solid 5px #fff;
+  border-left-color: transparent;
+  border-bottom-color: transparent;
+  position: absolute;
+  top: -8px;
+  right: 20px;
+}
+
+.hd_selList li {
+  color: #333;
+  position: relative;
+  cursor: pointer;
+}
+
+.hd_selList li a {
+  padding: 8px 15px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.hd_selList li + li::before {
+  content: "";
+  width: 100%;
+  height: 1px;
+  background-color: #b2b2b2;
+  position: absolute;
+  top: 0;
+  left: 0;
+  -webkit-transform: scaleY(0.5);
+          transform: scaleY(0.5);
+}
+
+.hd_selList .icon.football {
+  background-image: url(../images/icon/football_grey.png);
+}
+
+.hd_selList .icon.basketball {
+  background-image: url(../images/icon/basketball_grey.png);
+}
+
+.hd_selList .icon.esports {
+  background-image: url(../images/icon/esports_grey.png);
+}
+
+.hd_selList .count {
+  min-width: 25px;
+  padding: 0 6px;
+  margin-left: 10px;
+  height: 20px;
+  line-height: 22px;
+  text-align: center;
+  border-radius: 20px;
+  background-color: #b2b2b2;
+  color: #fff;
+  font-size: 0.8rem;
+}
+
+.content {
+  color: #333;
+}
+
+.mainSort ul {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  background-color: #7d7d7d;
+  color: #fff;
+}
+
+.mainSort li {
+  height: 35px;
+  line-height: 35px;
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+  text-align: center;
+  position: relative;
+  cursor: pointer;
+}
+
+.mainSort li.on {
+  font-weight: bold;
+}
+
+.mainSort li.on::before {
+  content: "";
+  width: 0;
+  height: 0;
+  -webkit-transform: rotate(-45deg) translateX(-7px);
+          transform: rotate(-45deg) translateX(-7px);
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  border: solid 4px #fff;
+  border-left-color: transparent;
+  border-bottom-color: transparent;
+}
+
+.mainSort li a {
+  display: block;
+}
+
+.scoreTools ul {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  background-color: #fff;
+  border-bottom: 1px solid #ccc;
+}
+
+.scoreTools li {
+  height: 35px;
+  line-height: 35px;
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+  text-align: center;
+  position: relative;
+  cursor: pointer;
+  position: relative;
+}
+
+.scoreTools li.on::before {
+  content: "";
+  width: 70%;
+  height: 2px;
+  margin: auto;
+  background-color: #f25a0a;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+}
+
+.scoreTools li a {
+  display: block;
+}
+
+.gameList ul {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+.gameList li {
+  position: relative;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+.gameList li.on {
+  -webkit-box-ordinal-group: -1;
+      -ms-flex-order: -2;
+          order: -2;
+}
+
+.gameList li + li::before {
+  content: '';
+  width: 100%;
+  height: 1px;
+  background-color: #ccc;
+  position: absolute;
+  top: 0;
+  left: 0;
+  -webkit-transform: scaleY(0.5);
+          transform: scaleY(0.5);
+}
+
+.gameDayrow {
+  height: 25px;
+  line-height: 25px;
+  text-align: center;
+  background-color: #f3f3f3;
+  color: #999;
+}
+
+.gameItem {
+  padding: 0 3px;
+  font-size: 0.6rem;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.gameItem.on {
+  -webkit-box-ordinal-group: 0;
+      -ms-flex-order: -1;
+          order: -1;
+}
+
+.gameItem .team {
+  width: 100%;
+  -ms-flex-negative: 1;
+      flex-shrink: 1;
+}
+
+.gameItem .team > div {
+  height: 22px;
+  line-height: 22px;
+  padding: 0 4px;
+}
+
+.gameItem .odds,
+.gameItem .score,
+.gameItem .timeScore {
+  -ms-flex-negative: 0;
+      flex-shrink: 0;
+}
+
+.gameItem .odds > div,
+.gameItem .score > div,
+.gameItem .timeScore > div {
+  min-width: 30px;
+  height: 22px;
+  line-height: 22px;
+  text-align: center;
+}
+
+.gameItem .status span {
+  color: #f25a0a;
+  padding-left: 5px;
+}
+
+.gameItem .guestTeam,
+.gameItem .homeTeam {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.gameItem .guestTeam span,
+.gameItem .homeTeam span {
+  padding-left: 2px;
+  padding-right: 5px;
+  color: #828282;
+}
+
+.gameItem .guestTeam .redCard,
+.gameItem .guestTeam .yellowCard,
+.gameItem .homeTeam .redCard,
+.gameItem .homeTeam .yellowCard {
+  height: 18px;
+  line-height: 20px;
+  padding: 0 2px;
+  display: inline;
+  border-radius: 2px;
+  color: #fff;
+  text-align: center;
+  position: relative;
+}
+
+.gameItem .guestTeam .redCard,
+.gameItem .homeTeam .redCard {
+  background-color: #f00;
+}
+
+.gameItem .guestTeam .yellowCard,
+.gameItem .homeTeam .yellowCard {
+  background-color: #f9c203;
+  margin-left: 3px;
+}
+
+.gameItem .timeScore .htit {
+  color: #b4b4b4;
+}
+
+.gameItem .score {
+  color: #0ea922;
+}
+
+.gameItem .odds .corner {
+  width: 40px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  color: #929292;
+}
+
+.icon_flag {
+  width: 12px;
+  height: 12px;
+  margin-right: 1px;
+  background: url(../images/icon/flag.png) no-repeat center/cover;
+}
+
+.gameItem .odds .follow {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  cursor: pointer;
+}
+
+.icon_star {
+  width: 15px;
+  height: 15px;
+  background: url(../images/icon/star.svg) no-repeat center/cover;
+}
+
+.icon_star.on {
+  background-image: url(../images/icon/star_on.svg);
+}
+
+.gameItem .odds .o2 {
+  color: #0972bf;
+}
+/*# sourceMappingURL=all.css.map */

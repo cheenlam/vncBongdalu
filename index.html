@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>比分和赔率、实时比分、现场结果、赛程、賽事预测</title>
+    <link rel="stylesheet" href="css/all.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    
+    <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+    <!-- 外掛插件 -->
+    <script src="js/router.js"></script>
+</head>
+
+<body>
+    <div class="mainBox">
+        <!-- ==== header start ==== -->
+        <div class="header">
+            <!-- hd_top start -->
+            <div class="hd_top">
+                <div class="hd_logo" id="hd_logo">
+                    <a href="#/football">
+                        <img src="images/hd_logo.png">
+                    </a>
+                </div>
+                <div class="hd_select">
+                    <div class="hd_checked" id="hd_checked">
+                        <div class="title">
+                            <div class="icon football"></div>
+                            <span class="txt">Bóng đá</span>
+                        </div>
+                    </div>
+                    <div class="hd_selList" id="hd_selList">
+                        <ul>
+                            <li data-sort="football">
+                                <a href="#/football">
+                                    <div class="icon football"></div>
+                                    <span class="txt">Bóng đá</span>
+                                    <div class="count">157</div>
+                                </a>
+                            </li>
+                            <li data-sort="basketball">
+                                <a href="#/basketball">
+                                    <div class="icon basketball"></div>
+                                    <span class="txt">Bóng rổ</span>
+                                    <div class="count">40</div>
+                                </a>
+                            </li>
+                            <li data-sort="esports">
+                                <a href="#/esports">
+                                    <div class="icon esports"></div>
+                                    <span class="txt">Thể thao điện tử</span>
+                                    <div class="count">70</div>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- ==== content start ==== -->
+        <div class="content" id="content"></div>
+    </div>
+</body>
+
+<script>
+    $('#hd_checked').click(function() {
+        $(this).toggleClass('on');
+    })
+
+
+
+
+    
+</script>
+
+
+</html>
