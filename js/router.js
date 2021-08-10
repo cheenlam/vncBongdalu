@@ -45,141 +45,187 @@ window.Router.init();
 // ======= 足球 =======
 Router.route('/football', function() {
     footballHerf()
-    scoreSocket('page/football/live.html');
     localStorage.setItem('scoreTools', '0');
+    setTimeout(function(){
+        scoreSocket('page/football/live.html');
+    },100) 
 });
 Router.route('/football/score', function() {
     footballHerf()
-    scoreSocket('page/football/live.html');
     localStorage.setItem('scoreTools', '0');
+    setTimeout(function(){
+        scoreSocket('page/football/live.html');
+    },100) 
 });
 Router.route('/football/live', function() {
     footballHerf()
-    scoreSocket('page/football/live.html');
     localStorage.setItem('scoreTools', '0');
+    setTimeout(function(){
+        scoreSocket('page/football/live.html');
+    },100) 
 });
 
 Router.route('/football/results', function() {
     footballHerf()
-    scoreSocket('page/football/results.html');
     localStorage.setItem('scoreTools', '1');
+    setTimeout(function(){
+        scoreSocket('page/football/results.html');
+    },100) 
 });
 Router.route('/football/today', function() {
     footballHerf()
-    scoreSocket('page/football/today.html');
     localStorage.setItem('scoreTools', '2');
+    setTimeout(function(){
+        scoreSocket('page/football/today.html');
+    },100) 
 });
 
 Router.route('/football/news', function() {
-    mainInclude('page/football.html');
-    mainSocket('page/football/news.html');
     localStorage.setItem('mainSort', '1');
+    mainInclude('page/football.html');
+    setTimeout(function(){
+        mainSocket('page/football/news.html');
+    },100) 
 });
 
 function footballHerf() {
     hdSel(0);
-    mainInclude('page/football.html');
-    mainSocket('page/football/score.html');
     localStorage.setItem('mainSort', '0');
+    mainInclude('page/football.html');
+    setTimeout(function(){
+        mainSocket('page/football/score.html'); 
+    },100)
 }
 
 // ======= 籃球 =======
 Router.route('/basketball', function() {
     basketballHerf()
-    scoreSocket('page/basketball/live.html');
     localStorage.setItem('scoreTools', '0');
+    setTimeout(function(){
+        scoreSocket('page/basketball/live.html');
+    },100)
 });
 
 Router.route('/basketball/score', function() {
     basketballHerf()
-    scoreSocket('page/basketball/live.html');
     localStorage.setItem('scoreTools', '0');
+    setTimeout(function(){
+        scoreSocket('page/basketball/live.html');
+    },100)
 });
 Router.route('/basketball/live', function() {
     basketballHerf()
-    scoreSocket('page/basketball/live.html');
     localStorage.setItem('scoreTools', '0');
+    setTimeout(function(){
+        scoreSocket('page/basketball/live.html');
+    },100)
 });
 
 Router.route('/basketball/results', function() {
     basketballHerf()
-    scoreSocket('page/basketball/results.html');
     localStorage.setItem('scoreTools', '1');
+    setTimeout(function(){
+        scoreSocket('page/basketball/results.html');
+    },100)
 });
 
 Router.route('/basketball/today', function() {
     basketballHerf()
-    scoreSocket('page/basketball/today.html');
     localStorage.setItem('scoreTools', '2');
+    setTimeout(function(){
+        scoreSocket('page/basketball/today.html');
+    },100)
 });
 
 function basketballHerf() {
     hdSel(1);
-    mainInclude('page/basketball.html');
-    mainSocket('page/basketball/score.html');
     localStorage.setItem('mainSort', '0');
+    mainInclude('page/basketball.html');
+    setTimeout(function(){
+        mainSocket('page/basketball/score.html'); 
+    },100)
 }
 
 Router.route('/basketball/nba', function() {
     basketballHerf2();
-    scoreSocket('page/basketball/nbaChart.html');
     localStorage.setItem('scoreTools', '0');
+    setTimeout(function(){
+        scoreSocket('page/basketball/nbaChart.html');
+    },100)
 });
 
 Router.route('/basketball/nbaChart', function() {
     basketballHerf2();
-    scoreSocket('page/basketball/nbaChart.html');
     localStorage.setItem('scoreTools', '0');
+    setTimeout(function(){
+        scoreSocket('page/basketball/nbaChart.html');
+    },100)
 });
 
 Router.route('/basketball/nbaToday', function() {
     basketballHerf2();
-    scoreSocket('page/basketball/nbaToday.html');
     localStorage.setItem('scoreTools', '1');
+    setTimeout(function(){
+        scoreSocket('page/basketball/nbaToday.html');
+    },100)
 });
 
 Router.route('/basketball/nbaTeam', function() {
     basketballHerf2();
-    scoreSocket('page/basketball/nbaTeam.html');
     localStorage.setItem('scoreTools', '2');
+    setTimeout(function(){
+        scoreSocket('page/basketball/nbaTeam.html');
+    },100)
 });
 
 Router.route('/basketball/nbaPlayer', function() {
     basketballHerf2();
-    scoreSocket('page/basketball/nbaPlayer.html');
     localStorage.setItem('scoreTools', '3');
+    setTimeout(function(){
+        scoreSocket('page/basketball/nbaPlayer.html');
+    },100)
 });
 
 function basketballHerf2() {
     hdSel(1);
-    mainInclude('page/basketball.html');
-    mainSocket('page/basketball/nba.html');
     localStorage.setItem('mainSort', '1');
+    mainInclude('page/basketball.html');
+    setTimeout(function(){
+        mainSocket('page/basketball/nba.html');
+    },100) 
 }
 
 
 // ======= 電競 =======
 Router.route('/esports', function() {
     esportsHerf()
-    mainSocket('page/esports/score.html');
     localStorage.setItem('mainSort', '0');
+    setTimeout(function(){
+        mainSocket('page/esports/score.html');
+    },100) 
 });
 Router.route('/esports/score', function() {
     esportsHerf()
-    mainSocket('page/esports/score.html');
     localStorage.setItem('mainSort', '0');
+    setTimeout(function(){
+        mainSocket('page/esports/score.html');
+    },100) 
 });
 
 Router.route('/esports/results', function() {
     esportsHerf()
-    mainSocket('page/esports/results.html');
     localStorage.setItem('mainSort', '1');
+    setTimeout(function(){
+        mainSocket('page/esports/results.html');
+    },100) 
 });
 
 Router.route('/esports/today', function() {
     esportsHerf()
-    mainSocket('page/esports/today.html');
     localStorage.setItem('mainSort', '2');
+    setTimeout(function(){
+        mainSocket('page/esports/today.html');
+    },100)
 });
 
 function esportsHerf() {
