@@ -52,21 +52,21 @@ Router.route('/football', function() {
     localStorage.setItem('scoreTools', '0');
     setTimeout(function() {
         scoreSocket('page/football/live.html');
-    }, 100)
+    }, 500)
 });
 Router.route('/football/score', function() {
     footballHerf()
     localStorage.setItem('scoreTools', '0');
     setTimeout(function() {
         scoreSocket('page/football/live.html');
-    }, 100)
+    }, 500)
 });
 Router.route('/football/live', function() {
     footballHerf()
     localStorage.setItem('scoreTools', '0');
     setTimeout(function() {
         scoreSocket('page/football/live.html');
-    }, 100)
+    }, 500)
 });
 
 Router.route('/football/results', function() {
@@ -74,14 +74,14 @@ Router.route('/football/results', function() {
     localStorage.setItem('scoreTools', '1');
     setTimeout(function() {
         scoreSocket('page/football/results.html');
-    }, 100)
+    }, 500)
 });
 Router.route('/football/today', function() {
     footballHerf()
     localStorage.setItem('scoreTools', '2');
     setTimeout(function() {
         scoreSocket('page/football/today.html');
-    }, 100)
+    }, 500)
 });
 
 Router.route('/football/news', function() {
@@ -89,7 +89,7 @@ Router.route('/football/news', function() {
     mainInclude('page/football.html');
     setTimeout(function() {
         mainSocket('page/football/news.html');
-    }, 100)
+    }, 500)
 });
 
 function footballHerf() {
@@ -98,7 +98,7 @@ function footballHerf() {
     mainInclude('page/football.html');
     setTimeout(function() {
         mainSocket('page/football/score.html');
-    }, 100)
+    }, 500)
 }
 
 for (let i = 0; i < 99; i++) {
@@ -115,7 +115,7 @@ Router.route('/basketball', function() {
     localStorage.setItem('scoreTools', '0');
     setTimeout(function() {
         scoreSocket('page/basketball/live.html');
-    }, 100)
+    }, 500)
 });
 
 Router.route('/basketball/score', function() {
@@ -123,14 +123,14 @@ Router.route('/basketball/score', function() {
     localStorage.setItem('scoreTools', '0');
     setTimeout(function() {
         scoreSocket('page/basketball/live.html');
-    }, 100)
+    }, 500)
 });
 Router.route('/basketball/live', function() {
     basketballHerf()
     localStorage.setItem('scoreTools', '0');
     setTimeout(function() {
         scoreSocket('page/basketball/live.html');
-    }, 100)
+    }, 500)
 });
 
 Router.route('/basketball/results', function() {
@@ -138,7 +138,7 @@ Router.route('/basketball/results', function() {
     localStorage.setItem('scoreTools', '1');
     setTimeout(function() {
         scoreSocket('page/basketball/results.html');
-    }, 100)
+    }, 500)
 });
 
 Router.route('/basketball/today', function() {
@@ -146,7 +146,7 @@ Router.route('/basketball/today', function() {
     localStorage.setItem('scoreTools', '2');
     setTimeout(function() {
         scoreSocket('page/basketball/today.html');
-    }, 100)
+    }, 500)
 });
 
 function basketballHerf() {
@@ -155,7 +155,7 @@ function basketballHerf() {
     mainInclude('page/basketball.html');
     setTimeout(function() {
         mainSocket('page/basketball/score.html');
-    }, 100)
+    }, 500)
 }
 
 Router.route('/basketball/nba', function() {
@@ -163,7 +163,7 @@ Router.route('/basketball/nba', function() {
     localStorage.setItem('scoreTools', '0');
     setTimeout(function() {
         scoreSocket('page/basketball/nbaChart.html');
-    }, 100)
+    }, 500)
 });
 
 Router.route('/basketball/nbaChart', function() {
@@ -171,7 +171,7 @@ Router.route('/basketball/nbaChart', function() {
     localStorage.setItem('scoreTools', '0');
     setTimeout(function() {
         scoreSocket('page/basketball/nbaChart.html');
-    }, 100)
+    }, 500)
 });
 
 Router.route('/basketball/nbaToday', function() {
@@ -179,7 +179,7 @@ Router.route('/basketball/nbaToday', function() {
     localStorage.setItem('scoreTools', '1');
     setTimeout(function() {
         scoreSocket('page/basketball/nbaToday.html');
-    }, 100)
+    }, 500)
 });
 
 Router.route('/basketball/nbaTeam', function() {
@@ -187,7 +187,7 @@ Router.route('/basketball/nbaTeam', function() {
     localStorage.setItem('scoreTools', '2');
     setTimeout(function() {
         scoreSocket('page/basketball/nbaTeam.html');
-    }, 100)
+    }, 500)
 });
 
 Router.route('/basketball/nbaPlayer', function() {
@@ -195,7 +195,7 @@ Router.route('/basketball/nbaPlayer', function() {
     localStorage.setItem('scoreTools', '3');
     setTimeout(function() {
         scoreSocket('page/basketball/nbaPlayer.html');
-    }, 100)
+    }, 500)
 });
 
 function basketballHerf2() {
@@ -204,7 +204,7 @@ function basketballHerf2() {
     mainInclude('page/basketball.html');
     setTimeout(function() {
         mainSocket('page/basketball/nba.html');
-    }, 100)
+    }, 500)
 }
 
 
@@ -214,14 +214,14 @@ Router.route('/esports', function() {
     localStorage.setItem('mainSort', '0');
     setTimeout(function() {
         mainSocket('page/esports/score.html');
-    }, 100)
+    }, 500)
 });
 Router.route('/esports/score', function() {
     esportsHerf()
     localStorage.setItem('mainSort', '0');
     setTimeout(function() {
         mainSocket('page/esports/score.html');
-    }, 100)
+    }, 500)
 });
 
 Router.route('/esports/results', function() {
@@ -229,7 +229,7 @@ Router.route('/esports/results', function() {
     localStorage.setItem('mainSort', '1');
     setTimeout(function() {
         mainSocket('page/esports/results.html');
-    }, 100)
+    }, 500)
 });
 
 Router.route('/esports/today', function() {
@@ -237,7 +237,7 @@ Router.route('/esports/today', function() {
     localStorage.setItem('mainSort', '2');
     setTimeout(function() {
         mainSocket('page/esports/today.html');
-    }, 100)
+    }, 500)
 });
 
 function esportsHerf() {
