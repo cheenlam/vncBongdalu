@@ -30,7 +30,7 @@
                 </div>
                 <div class="odds">
                     <div class="corner">
-                        <div class="icon_flag"></div>
+                        <div class="icon_flag" v-if="item.odds.corner != ''"></div>
                         <span>{{item.odds.corner}}</span>
                     </div>
                     <div class="o1">{{item.odds.lOdd.o1}}</div>
@@ -55,10 +55,29 @@
 
 
 <script>
-    var app = new Vue({
-        el: '#gameList',
-        data: {
-            listData: flist_live,
+    Vue.createApp({
+        data() {
+            return {
+                listData: '',
+                time: '',
+            };
         },
-    })
+        methods: {
+            getData() {
+                var self = this;
+                $.ajax({
+                    url: "https://spurslee.myqnapcloud.com:8081/FootBallScore.php",
+                    dataType: "json",
+                    success: function(data) {
+                        self.listData = data
+                        console.log(data)
+                    },
+                });
+            }
+        },
+        mounted() {
+            this.getData();
+            // this.timer = setInterval(this.getData, 1000*10);
+        },
+    }).mount("#gameList");
 </script>

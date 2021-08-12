@@ -30,7 +30,7 @@
                 </div>
                 <div class="odds">
                     <div class="corner">
-                        <div class="icon_flag"></div>
+                        <div class="icon_flag" v-if="item.odds.corner != ''"></div>
                         <span>{{item.odds.corner}}</span>
                     </div>
                     <div class="o1">{{item.odds.lOdd.o1}}</div>
@@ -42,10 +42,8 @@
                     <div class="o5">{{item.odds.oOdd.o5}}</div>
                 </div>
                 <div class="odds">
-                    <div class="follow"  @click="item.follow = !item.follow">
-                        <div class="icon_star" 
-                        :class="{ 'on': item.follow}"
-                       ></div>
+                    <div class="follow" @click="item.follow = !item.follow">
+                        <div class="icon_star" :class="{ 'on': item.follow}"></div>
                     </div>
                     <div class="o3">{{item.odds.lOdd.o3}}</div>
                     <div class="o6">{{item.odds.oOdd.o6}}</div>
@@ -58,10 +56,23 @@
 
 
 <script>
-    var app = new Vue({
-        el: '#gameList',
-        data: {
-            listData: flist_today
+    Vue.createApp({
+        data() {
+            return {
+                listData: flist_today,
+            };
         },
-    })
+        methods: {},
+        mounted() {
+            // var _this = this;
+            // $.ajax({
+            //     url: "http://spurslee.myqnapcloud.com:8888/FootBallScore.json",
+            //     dataType: "json",
+            //     success: function(data) {
+            //         console.log(data)
+            //         _this.listData = data.results;
+            //     },
+            // });
+        },
+    }).mount("#gameList");
 </script>
