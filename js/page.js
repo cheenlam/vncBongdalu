@@ -7,3 +7,4 @@ $('#esportsFilter li').click(function(){
     $('#esportsFilter li').removeClass('on');
     $(this).addClass('on')
 })
+
