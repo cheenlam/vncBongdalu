@@ -375,6 +375,31 @@ img {
   display: block;
 }
 
+.bankTool {
+  height: 35px;
+  background-color: #7d7d7d;
+}
+
+.bankTool .goBank {
+  height: 100%;
+  padding-left: 20px;
+  color: #fff;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  cursor: pointer;
+}
+
+.bankTool .icon {
+  width: 22px;
+  height: 22px;
+  margin-right: 5px;
+  background: url(../images/icon/bank.svg) no-repeat center/cover;
+}
+
 .gameList {
   height: calc(100vh - 130px);
   overflow-y: auto;
@@ -634,5 +659,50 @@ img {
   max-width: 150px;
   -ms-flex-negative: 0;
       flex-shrink: 0;
+}
+
+.newsContent {
+  padding-bottom: 50px;
+  font-size: 0.8rem;
+}
+
+.newsContent table {
+  width: 100%;
+}
+
+.newsContent .nwtitle {
+  text-align: left;
+  padding: 10px 10px 0 10px;
+  color: #333;
+  font-size: 14px;
+  font-weight: bold;
+}
+
+.newsContent .nwinfo {
+  padding: 0 10px;
+  color: #a1a1a1;
+  font-size: 12px;
+  padding-bottom: 5px;
+  overflow: hidden;
+  border-bottom: solid 1px #e1e1e1;
+}
+
+.newsContent .nwinfo .nwdate {
+  float: right;
+}
+
+.newsContent .nwcontent {
+  padding: 10px 16px;
+  line-height: 24px;
+  color: #333;
+  border-bottom: 1px #ccc solid;
+}
+
+.newsContent .nwdesc {
+  color: #707070;
+}
+
+.newsContent .nwdesc li {
+  padding: 5px 10px;
 }
 /*# sourceMappingURL=all.css.map */

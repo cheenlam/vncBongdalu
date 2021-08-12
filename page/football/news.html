@@ -1,7 +1,7 @@
 <div class="newsList" id="newsList">
     <ul>
-        <li v-for="item in listData">
-            <a href="{{item.href}}" v-if="item.img != '/images/vn/newDef.gif'">
+        <li v-for="(item, index) in listData">
+            <a :href=`#/football/news/list=${index}` v-if="item.img != '/images/vn/newDef.gif'">
                 <div class="newsMsg">
                     <div class="title">{{split(item.left.atitle)}}</div>
                     <div class="date">{{item.left.date}}</div>
@@ -31,7 +31,8 @@
                     url: "https://spurslee.myqnapcloud.com:8081/FootBallNews.php",
                     dataType: "json",
                     success: function(data) {
-                        self.listData = data;
+                        self.listData = data;  
+                        // console.log(data)  
                     },
                 });
             }

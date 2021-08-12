@@ -206,6 +206,25 @@ img {
             }
         }
     }
+
+    @at-root .bankTool {
+        height: 35px;
+        background-color: #7d7d7d;
+        .goBank {
+            height: 100%;
+            padding-left: 20px;
+            color: #fff;
+            display: flex;
+            align-items: center;
+            cursor: pointer;
+        }
+        .icon {
+            width: 22px;
+            height: 22px;
+            margin-right: 5px;
+            background: url(../images/icon/bank.svg) no-repeat center / cover;
+        }
+    }
 }
 
 // gameList start
@@ -391,9 +410,49 @@ img {
         }
     }
 
-    @at-root .newsImg{
+    @at-root .newsImg {
         width: 30%;
         max-width: 150px;
         flex-shrink: 0;
+    }
+}
+
+// newsContent start
+.newsContent {
+    padding-bottom: 50px;
+    font-size: 0.8rem;
+    table {
+        width: 100%;
+    }
+
+    .nwtitle {
+        text-align: left;
+        padding: 10px 10px 0 10px;
+        color: #333;
+        font-size: 14px;
+        font-weight: bold;
+    }
+    .nwinfo {
+        padding: 0 10px;
+        color: #a1a1a1;
+        font-size: 12px;
+        padding-bottom: 5px;
+        overflow: hidden;
+        border-bottom: solid 1px #e1e1e1;
+        .nwdate {
+            float: right;
+        }
+    }
+    .nwcontent {
+        padding: 10px 16px;
+        line-height: 24px;
+        color: #333;
+        border-bottom: 1px #ccc solid;
+    }
+    .nwdesc {
+        color: #707070;
+        li {
+            padding: 5px 10px;
+        }
     }
 }
