@@ -603,6 +603,20 @@ img {
   color: #0972bf;
 }
 
+.newsList {
+  height: calc(100vh - 95px);
+  overflow-y: auto;
+}
+
+.newsList::-webkit-scrollbar {
+  width: 10px;
+  background-color: #fff;
+}
+
+.newsList::-webkit-scrollbar-thumb {
+  background-color: #f25a0a;
+}
+
 .newsList li {
   width: 100%;
   position: relative;
@@ -662,8 +676,19 @@ img {
 }
 
 .newsContent {
+  height: calc(100vh - 95px);
   padding-bottom: 50px;
   font-size: 0.8rem;
+  overflow-y: auto;
+}
+
+.newsContent::-webkit-scrollbar {
+  width: 10px;
+  background-color: #fff;
+}
+
+.newsContent::-webkit-scrollbar-thumb {
+  background-color: #f25a0a;
 }
 
 .newsContent table {
