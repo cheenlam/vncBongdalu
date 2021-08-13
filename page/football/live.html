@@ -42,7 +42,7 @@
                     <div class="o5">{{item.odds.oOdd.o5}}</div>
                 </div>
                 <div class="odds">
-                    <div class="follow" @click="item.follow = !item.follow">
+                    <div class="follow" @click="item.follow = !item.follow ,local(item)">
                         <div class="icon_star" :class="{ 'on': item.follow}"></div>
                     </div>
                     <div class="o3">{{item.odds.lOdd.o3}}</div>
@@ -60,6 +60,7 @@
             return {
                 listData: '',
                 time: '',
+                memory: [],
             };
         },
         methods: {
@@ -70,15 +71,32 @@
                     dataType: "json",
                     success: function(data) {
                         self.listData = data
+                        self.listData.forEach(function(item) {
+                            let data = item.team.status.time + item.team.status.gameName + item.homeTeam.name;
+                            if (self.memory.indexOf(data) == -1) {
+                                item.follow = false;
+                            }else{
+                                item.follow = true;
+                            }
+                        })
                     },
                 });
+            },
+            local(item) {
+                let data = item.team.status.time + item.team.status.gameName + item.homeTeam.name
+                if (this.memory.indexOf(data) == -1) {
+                    this.memory.push(data)
+                } else {
+                    let index = this.memory.indexOf(data, 0);
+                    this.memory.splice(index, 1);
+                }
+                localStorage.setItem('localFlive', this.memory);
             }
         },
         mounted() {
             this.getData();
-            this.timer = setInterval(this.getData, 1000*10);
+            this.timer = setInterval(this.getData, 1000 * 10);
+            this.memory = localStorage.getItem('localFlive').split(',')
         },
     }).mount("#gameList");
 </script>
-
-
