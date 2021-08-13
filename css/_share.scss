@@ -52,10 +52,9 @@ img {
                 border-radius: 5px;
                 box-shadow: 1px 1px 4px #c25432;
                 cursor: pointer;
-                &.on + .hd_selList {
+                &.on+.hd_selList {
                     display: block;
                 }
-
                 .icon.football {
                     background-image: url(../images/icon/football.png);
                 }
@@ -107,7 +106,7 @@ img {
                         align-items: center;
                     }
                 }
-                li + li::before {
+                li+li::before {
                     content: "";
                     width: 100%;
                     height: 1px;
@@ -115,7 +114,6 @@ img {
                     @include pos(tl, 0);
                     transform: scaleY(0.5);
                 }
-
                 .icon.football {
                     background-image: url(../images/icon/football_grey.png);
                 }
@@ -125,7 +123,6 @@ img {
                 .icon.esports {
                     background-image: url(../images/icon/esports_grey.png);
                 }
-
                 .count {
                     min-width: 25px;
                     padding: 0 6px;
@@ -145,6 +142,15 @@ img {
 
 // ==== content start ====
 .content {
+    max-height: calc(100vh - 130px);
+    overflow-y: auto;
+    &::-webkit-scrollbar {
+        width: 10px;
+        background-color: #fff;
+    }
+    &::-webkit-scrollbar-thumb {
+        background-color: #f25a0a;
+    }
     color: #333;
     @at-root .mainSort {
         ul {
@@ -172,14 +178,12 @@ img {
                 border-left-color: transparent;
                 border-bottom-color: transparent;
             }
-
             a {
                 display: block;
             }
         }
     }
-
-    @at-root .scoreTools {
+    @at-root .secondSort {
         ul {
             display: flex;
             background-color: #fff;
@@ -206,7 +210,6 @@ img {
             }
         }
     }
-
     @at-root .bankTool {
         height: 35px;
         background-color: #7d7d7d;
@@ -229,15 +232,7 @@ img {
 
 // gameList start
 .gameList {
-    height: calc(100vh - 130px);
-    overflow-y: auto;
-    &::-webkit-scrollbar {
-        width: 10px;
-        background-color: #fff;
-    }
-    &::-webkit-scrollbar-thumb {
-        background-color: #f25a0a;
-    }
+    
     ul {
         display: flex;
         flex-direction: column;
@@ -250,8 +245,7 @@ img {
             order: -1;
         }
     }
-
-    li + li::before {
+    li+li::before {
         content: "";
         width: 100%;
         height: 1px;
@@ -259,7 +253,6 @@ img {
         @include pos(tl, 0);
         transform: scaleY(0.5);
     }
-
     @at-root .gameDayrow {
         height: 25px;
         line-height: 25px;
@@ -267,7 +260,6 @@ img {
         background-color: #f3f3f3;
         color: #999;
     }
-
     @at-root .gameItem {
         padding: 0 3px;
         font-size: 0.6rem;
@@ -278,25 +270,23 @@ img {
         .team {
             width: 100%;
             flex-shrink: 1;
-            & > div {
+            &>div {
                 height: 22px;
                 line-height: 22px;
                 padding: 0 4px;
             }
         }
-
         .odds,
         .score,
         .timeScore {
             flex-shrink: 0;
-            & > div {
+            &>div {
                 min-width: 30px;
                 height: 22px;
                 line-height: 22px;
                 text-align: center;
             }
         }
-
         .status {
             span {
                 color: #f25a0a;
@@ -366,7 +356,6 @@ img {
                     }
                 }
             }
-
             .o2 {
                 color: #0972bf;
             }
@@ -375,18 +364,10 @@ img {
 }
 
 // newsList start
-.newsList {
-    height: calc(100vh - 95px);
-    overflow-y: auto;
-    &::-webkit-scrollbar {
-        width: 10px;
-        background-color: #fff;
-    }
-    &::-webkit-scrollbar-thumb {
-        background-color: #f25a0a;
-    }
+.newsList { 
     li {
         width: 100%;
+        min-height: 114px;
         position: relative;
         a {
             padding: 10px;
@@ -394,8 +375,7 @@ img {
             justify-content: space-between;
         }
     }
-
-    li + li::before {
+    li+li::before {
         content: "";
         width: 100%;
         height: 1px;
@@ -418,17 +398,15 @@ img {
             line-height: 1.3rem;
         }
     }
-
     @at-root .newsImg {
         width: 30%;
         max-width: 150px;
-        flex-shrink: 0;
+        flex-shrink: 0 !important;
     }
 }
 
 // newsContent start
 .newsContent {
-    height: calc(100vh - 95px);
     padding-bottom: 50px;
     font-size: 0.8rem;
     overflow-y: auto;
@@ -442,7 +420,6 @@ img {
     table {
         width: 100%;
     }
-
     .nwtitle {
         text-align: left;
         padding: 10px 10px 0 10px;
@@ -474,3 +451,4 @@ img {
         }
     }
 }
+

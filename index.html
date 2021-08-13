@@ -12,11 +12,10 @@
     <script src="js/router.js"></script>
     <!-- 自訂義 -->
     <script src="js/data.js"></script>
-    <script src="js/page.js"></script>
 </head>
 
 <body>
-    <div class="mainBox">
+    <div class="mainBox" id="mainBox">
         <!-- ==== header start ==== -->
         <div class="header">
             <!-- hd_top start -->
@@ -27,33 +26,19 @@
                     </a>
                 </div>
                 <div class="hd_select">
-                    <div class="hd_checked" id="hd_checked">
+                    <div class="hd_checked"  :class="{'on' : hd_checked}" @click="hd_checked = !hd_checked">
                         <div class="title">
-                            <div class="icon football"></div>
-                            <span class="txt">Bóng đá</span>
+                            <div class="icon" :class="hd_selList[hd_checkIndex].sort"></div>
+                            <span class="txt">{{hd_selList[hd_checkIndex].txt}}</span>
                         </div>
                     </div>
                     <div class="hd_selList" id="hd_selList">
                         <ul>
-                            <li data-sort="football">
-                                <a href="#/football">
-                                    <div class="icon football"></div>
-                                    <span class="txt">Bóng đá</span>
-                                    <div class="count">157</div>
-                                </a>
-                            </li>
-                            <li data-sort="basketball">
-                                <a href="#/basketball">
-                                    <div class="icon basketball"></div>
-                                    <span class="txt">Bóng rổ</span>
-                                    <div class="count">40</div>
-                                </a>
-                            </li>
-                            <li data-sort="esports">
-                                <a href="#/esports">
-                                    <div class="icon esports"></div>
-                                    <span class="txt">Thể thao điện tử</span>
-                                    <div class="count">70</div>
+                            <li v-for="(item,index) in hd_selList" @click="hd_checked = false, chHdcheck(index), chMainIndex(0)">
+                                <a :href=`#/${item.sort}`>
+                                    <div class="icon" :class="item.sort"></div>
+                                    <span class="txt">{{item.txt}}</span>
+                                    <div class="count">{{item.count}}</div>
                                 </a>
                             </li>
                         </ul>
@@ -61,17 +46,156 @@
                 </div>
             </div>
         </div>
+        <!-- ==== mainSort start (主項目) ==== -->
+        <div class="mainSort" id="mainSort">
+            <template v-if="ckBank">
+                <!-- 足球 -->
+                <ul v-if="hd_checkIndex==0">
+                    <li v-for="(item,index) in mainSort.football" @click="chMainIndex(index)">
+                        <a :href=`#/${item.herf}`>{{item.txt}}</a>
+                    </li>
+                </ul>
+                <!-- 籃球 -->
+                <ul v-else-if="hd_checkIndex==1">
+                    <li v-for="(item,index) in mainSort.basketball" @click="chMainIndex(index)">
+                        <a :href=`#/${item.herf}`>{{item.txt}}</a>
+                    </li>
+                </ul>
+                <!-- 電競 -->
+                <ul v-else-if="hd_checkIndex==2">
+                    <li v-for="(item,index) in mainSort.esports" @click="chMainIndex(index)">
+                        <a :href=`#/${item.herf}`>{{item.txt}}</a>
+                    </li>
+                </ul>
+            </template>
+            
+            <div class="bankTool" v-else-if="!ckBank">
+                <div class="goBank" @click="goBank">
+                    <div class="icon"></div>
+                    <span>Trở lại trang trước</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- ==== secondSort start  (第二項目)==== -->
+        <div class="secondSort">
+             <!-- 足球 -->
+            <template  v-if="hd_checkIndex==0">
+                 <!-- 足球 score -->   
+                <ul v-if="mainIndex==0">
+                    <li v-for="(item,index) in secondSort.football.score">
+                        <a :href=`#/${item.herf}`>{{item.txt}}</a>
+                    </li>
+                </ul>
+                <!-- 足球 news -->
+                <ul v-else-if="mainIndex==1">
+                    <li v-for="(item,index) in secondSort.football.news">
+                        <a :href=`#/${item.herf}`>{{item.txt}}</a>
+                    </li>
+                </ul>
+            </template>
+            <!-- 籃球 -->
+            <template v-else-if="hd_checkIndex==1">
+                 <!-- 籃球 score -->
+                <ul v-if="mainIndex==0">
+                    <li v-for="(item,index) in secondSort.basketball.score">
+                        <a :href=`#/${item.herf}`>{{item.txt}}</a>
+                    </li>
+                </ul>
+                <!-- 籃球 nba -->
+                <ul v-else-if="mainIndex==1">
+                    <li v-for="(item,index) in secondSort.basketball.nba">
+                        <a :href=`#/${item.herf}`>{{item.txt}}</a>
+                    </li>
+                </ul>
+            </template>
+            <!-- 電競 -->
+            <template v-else-if="hd_checkIndex==2">
+                <!-- 電競 -->
+                <ul v-if="mainIndex==0">
+                    <li v-for="(item,index) in secondSort.esports">{{item.txt}}</li>
+                </ul>
+            </template>
+        </div>
 
         <!-- ==== content start ==== -->
         <div class="content" id="content"></div>
     </div>
-
-    <div class="loading"></div>
 </body>
 
 <script>
-    $('#hd_checked').click(function() {
-        $(this).toggleClass('on');
-    })
+    var vue_index = Vue.createApp({
+        data() {
+            return {
+                ckBank:true,
+                hd_checked:false,
+                hd_checkIndex:0,
+                hd_selList: [
+                    {sort:"football",txt:"Bóng đá",count:157},
+                    {sort:"basketball",txt:"Bóng rổ",count:40},
+                    {sort:"esports",txt:"Thể thao điện tử",count:70},
+                ],
+                mainIndex:0,
+                mainSort:{
+                    football: [
+                        {herf:"football/score",txt:"Tỷ số"},
+                        {herf:"football/news",txt:"Nhận định"}
+                    ],
+                    basketball: [
+                        {herf:"basketball/score",txt:"Tỷ số"},
+                        {herf:"basketball/nba",txt:"NBA"}
+                    ],
+                    esports: [
+                        {herf:"esports/score",txt:"Tỷ số"},
+                        {herf:"esports/results",txt:"Kết quả"},
+                        {herf:"esports/today",txt:"Lịch thi đấu"}
+                    ]
+                },
+                secondSort:{
+                    football:{
+                        score:[
+                            {herf:"football/live",txt:"Trực tuyến"},
+                            {herf:"football/results",txt:"Kết quả"},
+                            {herf:"football/today",txt:"Lịch thi đấu"}
+                        ],
+                        news:[]
+                    },
+                    basketball:{
+                        score:[
+                            {herf:"basketball/live",txt:"Trực tuyến"},
+                            {herf:"basketball/results",txt:"Kết quả"},
+                            {herf:"basketball/today",txt:"Lịch thi đấu"}
+                        ],
+                        nba:[
+                            {herf:"basketball/nbaChart",txt:"Bảng xếp hạng"},
+                            {herf:"basketball/nbaToday",txt:"Lịch thi đấu"},
+                            {herf:"basketball/nbaTeam",txt:"Đội bóng"},
+                            {herf:"basketball/nbaPlayer",txt:"Cầu thủ"}
+                        ]
+                    },
+                    esports:[
+                        {txt:"Tất cả"},
+                        {txt:"LOL"},
+                        {txt:"DOTA2"},
+                        {txt:"CS:GO"}
+                    ],
+                }
+            };
+        },
+        methods: {   
+            chHdcheck(index){
+                this.hd_checkIndex = index;
+            },
+            chMainIndex(index){
+                this.mainIndex = index;
+            },
+            goBank(){
+                history.go(-1)
+            } 
+        },
+        mounted() {   
+        },
+    }).mount("#mainBox");
+    
 </script>
 </html>

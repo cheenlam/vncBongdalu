@@ -28,16 +28,20 @@
             getData() {
                 var self = this;
                 $.ajax({
-                    url: "https://spurslee.myqnapcloud.com:8081/FootBallNews.php",
+                    url: "https://spurslee.myqnapcloud.com:8081/GetJson.php?json=FootBallNews",
                     dataType: "json",
                     success: function(data) {
                         self.listData = data;   
                     },
                 });
-            }
+            },
         },
         mounted() {
             this.getData();
         },
     }).mount("#newsList");
+
+    $('#newsList li').click(function(){
+       
+    })
 </script>
