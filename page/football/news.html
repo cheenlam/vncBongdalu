@@ -24,7 +24,7 @@
         },
         methods: {
             split: function(data) {
-                return data.split(/(?=[A-Z])/).join(' ');
+                return data.split(/(?=[A-Z,-])/).join(' ');
             },
             getData() {
                 var self = this;
