@@ -76,6 +76,8 @@ Router.route('/football/news', function() {
 
 for (let i = 0; i < 99; i++) {
     Router.route(`/football/news/list=${i}`, function() {
+        hdSel(0,1);
+        localStorage.setItem('newsContent',i)
         vue_index.ckBank = false; 
         mainInclude(`page/football/newsContent.html`);
     });
@@ -183,4 +185,5 @@ function hdSel(check,main) {
     vue_index.hd_checkIndex = check;
     vue_index.hd_checked = false;
     vue_index.mainIndex = main;
+    vue_index.goTop();
 }

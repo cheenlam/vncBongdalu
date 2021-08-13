@@ -19,6 +19,7 @@
         data() {
             return {
                 listData: '',
+                time: '',
             };
         },
         methods: {
@@ -38,10 +39,9 @@
         },
         mounted() {
             this.getData();
+            this.listData = f_news;
+            this.timer = setInterval(this.getData, 1000*10);
         },
     }).mount("#newsList");
 
-    $('#newsList li').click(function(){
-       
-    })
 </script>

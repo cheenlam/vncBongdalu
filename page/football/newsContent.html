@@ -1,15 +1,20 @@
 <!-- newsContent start -->
-<div class="newsContent" id="newsContent">
+<div class="newsContent" id="newsContent" v-html="listData">
 </div>
 
 <script>
-    $.ajax({
-        url: "https://spurslee.myqnapcloud.com:8081/GetJson.php?json=FootBallNews",
-        dataType: "json",
-        success: function(data) {
-            let getIndex = localStorage.getItem('newsContent')
-            $("#newsContent").html(data[getIndex].context);
-            $('#newsContent .nwrecent').remove()
-        }
-    });
+    Vue.createApp({
+        data() {
+            return {
+                listData: '',
+            };
+        },
+        methods: {},
+        mounted() {
+            this.listData = f_news;
+            let getIndex = localStorage.getItem('newsContent');
+            $("#newsContent").html(this.listData[getIndex].context);
+            $('#newsContent .nwrecent').remove();
+        },
+    }).mount("#newsContent");
 </script>

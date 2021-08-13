@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="vi">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -26,7 +27,7 @@
                     </a>
                 </div>
                 <div class="hd_select">
-                    <div class="hd_checked"  :class="{'on' : hd_checked}" @click="hd_checked = !hd_checked">
+                    <div class="hd_checked" :class="{'on' : hd_checked}" @click="hd_checked = !hd_checked">
                         <div class="title">
                             <div class="icon" :class="hd_selList[hd_checkIndex].sort"></div>
                             <span class="txt">{{hd_selList[hd_checkIndex].txt}}</span>
@@ -68,7 +69,7 @@
                     </li>
                 </ul>
             </template>
-            
+
             <div class="bankTool" v-else-if="!ckBank">
                 <div class="goBank" @click="goBank">
                     <div class="icon"></div>
@@ -79,8 +80,8 @@
 
         <!-- ==== secondSort start  (第二項目)==== -->
         <div class="secondSort">
-             <!-- 足球 -->
-            <template  v-if="hd_checkIndex==0">
+            <!-- 足球 -->
+            <template v-if="hd_checkIndex==0">
                  <!-- 足球 score -->   
                 <ul v-if="mainIndex==0">
                     <li v-for="(item,index) in secondSort.football.score">
@@ -119,83 +120,140 @@
         </div>
 
         <!-- ==== content start ==== -->
-        <div class="content" id="content"></div>
+        <div class="content" id="content" ref="box"></div>
     </div>
 </body>
 
 <script>
+    var f_news;
+
     var vue_index = Vue.createApp({
         data() {
             return {
-                ckBank:true,
-                hd_checked:false,
-                hd_checkIndex:0,
-                hd_selList: [
-                    {sort:"football",txt:"Bóng đá",count:157},
-                    {sort:"basketball",txt:"Bóng rổ",count:40},
-                    {sort:"esports",txt:"Thể thao điện tử",count:70},
-                ],
-                mainIndex:0,
-                mainSort:{
-                    football: [
-                        {herf:"football/score",txt:"Tỷ số"},
-                        {herf:"football/news",txt:"Nhận định"}
-                    ],
-                    basketball: [
-                        {herf:"basketball/score",txt:"Tỷ số"},
-                        {herf:"basketball/nba",txt:"NBA"}
-                    ],
-                    esports: [
-                        {herf:"esports/score",txt:"Tỷ số"},
-                        {herf:"esports/results",txt:"Kết quả"},
-                        {herf:"esports/today",txt:"Lịch thi đấu"}
-                    ]
+                ckBank: true,
+                hd_checked: false,
+                hd_checkIndex: 0,
+                hd_selList: [{
+                    sort: "football",
+                    txt: "Bóng đá",
+                    count: 157
+                }, {
+                    sort: "basketball",
+                    txt: "Bóng rổ",
+                    count: 40
+                }, {
+                    sort: "esports",
+                    txt: "Thể thao điện tử",
+                    count: 70
+                }, ],
+                mainIndex: 0,
+                mainSort: {
+                    football: [{
+                        herf: "football/score",
+                        txt: "Tỷ số"
+                    }, {
+                        herf: "football/news",
+                        txt: "Nhận định"
+                    }],
+                    basketball: [{
+                        herf: "basketball/score",
+                        txt: "Tỷ số"
+                    }, {
+                        herf: "basketball/nba",
+                        txt: "NBA"
+                    }],
+                    esports: [{
+                        herf: "esports/score",
+                        txt: "Tỷ số"
+                    }, {
+                        herf: "esports/results",
+                        txt: "Kết quả"
+                    }, {
+                        herf: "esports/today",
+                        txt: "Lịch thi đấu"
+                    }]
                 },
-                secondSort:{
-                    football:{
-                        score:[
-                            {herf:"football/live",txt:"Trực tuyến"},
-                            {herf:"football/results",txt:"Kết quả"},
-                            {herf:"football/today",txt:"Lịch thi đấu"}
-                        ],
-                        news:[]
+                secondSort: {
+                    football: {
+                        score: [{
+                            herf: "football/live",
+                            txt: "Trực tuyến"
+                        }, {
+                            herf: "football/results",
+                            txt: "Kết quả"
+                        }, {
+                            herf: "football/today",
+                            txt: "Lịch thi đấu"
+                        }],
+                        news: []
                     },
-                    basketball:{
-                        score:[
-                            {herf:"basketball/live",txt:"Trực tuyến"},
-                            {herf:"basketball/results",txt:"Kết quả"},
-                            {herf:"basketball/today",txt:"Lịch thi đấu"}
-                        ],
-                        nba:[
-                            {herf:"basketball/nbaChart",txt:"Bảng xếp hạng"},
-                            {herf:"basketball/nbaToday",txt:"Lịch thi đấu"},
-                            {herf:"basketball/nbaTeam",txt:"Đội bóng"},
-                            {herf:"basketball/nbaPlayer",txt:"Cầu thủ"}
-                        ]
+                    basketball: {
+                        score: [{
+                            herf: "basketball/live",
+                            txt: "Trực tuyến"
+                        }, {
+                            herf: "basketball/results",
+                            txt: "Kết quả"
+                        }, {
+                            herf: "basketball/today",
+                            txt: "Lịch thi đấu"
+                        }],
+                        nba: [{
+                            herf: "basketball/nbaChart",
+                            txt: "Bảng xếp hạng"
+                        }, {
+                            herf: "basketball/nbaToday",
+                            txt: "Lịch thi đấu"
+                        }, {
+                            herf: "basketball/nbaTeam",
+                            txt: "Đội bóng"
+                        }, {
+                            herf: "basketball/nbaPlayer",
+                            txt: "Cầu thủ"
+                        }]
                     },
-                    esports:[
-                        {txt:"Tất cả"},
-                        {txt:"LOL"},
-                        {txt:"DOTA2"},
-                        {txt:"CS:GO"}
-                    ],
+                    esports: [{
+                        txt: "Tất cả"
+                    }, {
+                        txt: "LOL"
+                    }, {
+                        txt: "DOTA2"
+                    }, {
+                        txt: "CS:GO"
+                    }],
                 }
             };
         },
-        methods: {   
-            chHdcheck(index){
+        methods: {
+            goTop(){
+                this.$refs.box.scrollTop = 0;
+            },
+            chHdcheck(index) {
                 this.hd_checkIndex = index;
             },
-            chMainIndex(index){
+            chMainIndex(index) {
                 this.mainIndex = index;
             },
-            goBank(){
+            goBank() {
                 history.go(-1)
-            } 
+            },
+            getf_news() {
+                $.ajax({
+                    url: "https://spurslee.myqnapcloud.com:8081/GetJson.php?json=FootBallNews",
+                    dataType: "json",
+                    success: function(data) {
+                        f_news = data;
+                        let getIndex = localStorage.getItem('newsContent')
+                        $("#newsContent").html(data[getIndex].context);
+                        $('#newsContent .nwrecent').remove();
+                    },
+                });
+            },
         },
-        mounted() {   
+        mounted() {
+            this.getf_news();
         },
     }).mount("#mainBox");
-    
 </script>
+
 </html>
