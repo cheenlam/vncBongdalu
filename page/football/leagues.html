@@ -1,9 +1,9 @@
 <div class="leaguesBox" id="leaguesBox">
     <div class="league_filter">
-        <input type="text" placeholder="nhập từ khóa liên minh" v-model="iptTxt" @keyup="filter()">
+        <input type="text" placeholder="Hãy nhập tên quốc gia" v-model="iptTxt" @keyup="filter()">
     </div>
     <div class="league_follow">
-        <div class="title" :class="{ 'on': fllowLook,getLen}" @click="fllowLook = !fllowLook">
+        <div class="title" :class="{ 'on': fllowLook}" @click="fllowLook = !fllowLook">
             <span>Theo dõi</span>
             <div class="icon_arrow"></div>
         </div>
@@ -35,7 +35,7 @@
                     <ul>
                         <li v-for="(item,index) in item.leagues">
                             <span>{{item.leagueName}}</span>
-                            <div class="icon_star" :class="{ 'on': item.follow}" @click="item.follow = !item.follow, local(item)"></div>
+                            <div class="icon_star" :class="{ 'on': item.follow}" @click="item.follow = !item.follow, local(item),getLen()"></div>
                         </li>
                     </ul>
                 </div>
@@ -112,14 +112,13 @@
                 }
                 localStorage.setItem('localFleague', this.memory);
                 this.fllowLook = this.memory.length > 0 ? true : false
-
             },
             getLen() {
                 let len = this.memory.length;
                 if (len > 0) {
-                    return true
+                    this.fllowLook == true
                 } else {
-                    return false
+                    this.fllowLook == false
                 }
             },
             getData() {
