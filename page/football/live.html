@@ -1,56 +1,123 @@
 <div class="gameList" id="gameList">
-    <ul>
-        <li v-for="(item,index) in listData" :class="{ 'on': item.follow && item.dayrow == ''}">
-            <div class="gameDayrow" v-if="item.dayrow != ''">{{item.dayrow}}</div>
-            <div class="gameItem" :class="{ 'on': item.follow}">
-                <div class="team">
-                    <div class="status">
-                        <p>{{item.team.status.time}}<span>{{item.team.status.gameName}}</span></p>
+    <!-- 監視器 -->
+    <div class="monitor">
+        <div class="title" :class="{ 'on': fllowLook}" @click="fllowLook = !fllowLook">
+            <span>Theo dõi</span>
+            <div class="icon_arrow"></div>
+        </div>
+
+        <div class="live_list">
+            <ul>
+                <template v-for="(item,index) in listData">
+                    <li  v-if="item.follow">
+                        <div class="gameItem">
+                            <div class="team">
+                                <div class="status">
+                                    <p>{{item.team.status.time}}<span>{{item.team.status.gameName}}</span></p>
+                                </div>
+                                <div class="homeTeam">
+                                    <p>{{item.homeTeam.name}}<span>{{item.homeTeam.score}}</span></p>
+                                    <div class="redCard" v-if="item.homeTeam.redCard != ''">{{item.homeTeam.redCard}}</div>
+                                    <div class="yellowCard" v-if="item.homeTeam.yellowCard != ''">{{item.homeTeam.yellowCard}}</div>
+                                </div>
+                                <div class="guestTeam">
+                                    <p>{{item.guestTeam.name}}<span>{{item.guestTeam.score}}</span></p>
+                                    <div class="redCard" v-if="item.guestTeam.redCard != ''">{{item.guestTeam.redCard}}</div>
+                                    <div class="yellowCard" v-if="item.guestTeam.yellowCard != ''">{{item.guestTeam.yellowCard}}</div>
+                                </div>
+                            </div>
+                            <div class="timeScore">
+                                <div class="htit">{{item.timeScore.htit}}</div>
+                                <div>{{item.timeScore.homeOdd}}</div>
+                                <div>{{item.timeScore.guestOdd}}</div>
+                            </div>
+                            <div class="score">
+                                <div>{{item.score.state}}</div>
+                                <div>{{item.score.homeS}}</div>
+                                <div>{{item.score.guestS}}</div>
+                            </div>
+                            <div class="odds">
+                                <div class="corner">
+                                    <div class="icon_flag" v-if="item.odds.corner != ''"></div>
+                                    <span>{{item.odds.corner}}</span>
+                                </div>
+                                <div class="o1">{{item.odds.lOdd.o1}}</div>
+                                <div class="o4">{{item.odds.oOdd.o4}}</div>
+                            </div>
+                            <div class="odds">
+                                <div></div>
+                                <div class="o2">{{item.odds.lOdd.o2}}</div>
+                                <div class="o5">{{item.odds.oOdd.o5}}</div>
+                            </div>
+                            <div class="odds">
+                                <div class="follow" @click="item.follow = !item.follow ,local(item)">
+                                    <div class="icon_star" :class="{ 'on': item.follow}"></div>
+                                </div>
+                                <div class="o3">{{item.odds.lOdd.o3}}</div>
+                                <div class="o6">{{item.odds.oOdd.o6}}</div>
+                            </div>
+                        </div>
+                    </li>
+                </template> 
+            </ul>
+        </div> 
+    </div>
+
+    <!-- live清單 -->
+    <div class="live_list">
+        <ul>
+            <li v-for="(item,index) in listData">
+                <div class="gameDayrow" v-if="item.dayrow != ''">{{item.dayrow}}</div>
+                <div class="gameItem">
+                    <div class="team">
+                        <div class="status">
+                            <p>{{item.team.status.time}}<span>{{item.team.status.gameName}}</span></p>
+                        </div>
+                        <div class="homeTeam">
+                            <p>{{item.homeTeam.name}}<span>{{item.homeTeam.score}}</span></p>
+                            <div class="redCard" v-if="item.homeTeam.redCard != ''">{{item.homeTeam.redCard}}</div>
+                            <div class="yellowCard" v-if="item.homeTeam.yellowCard != ''">{{item.homeTeam.yellowCard}}</div>
+                        </div>
+                        <div class="guestTeam">
+                            <p>{{item.guestTeam.name}}<span>{{item.guestTeam.score}}</span></p>
+                            <div class="redCard" v-if="item.guestTeam.redCard != ''">{{item.guestTeam.redCard}}</div>
+                            <div class="yellowCard" v-if="item.guestTeam.yellowCard != ''">{{item.guestTeam.yellowCard}}</div>
+                        </div>
                     </div>
-                    <div class="homeTeam">
-                        <p>{{item.homeTeam.name}}<span>{{item.homeTeam.score}}</span></p>
-                        <div class="redCard" v-if="item.homeTeam.redCard != ''">{{item.homeTeam.redCard}}</div>
-                        <div class="yellowCard" v-if="item.homeTeam.yellowCard != ''">{{item.homeTeam.yellowCard}}</div>
+                    <div class="timeScore">
+                        <div class="htit">{{item.timeScore.htit}}</div>
+                        <div>{{item.timeScore.homeOdd}}</div>
+                        <div>{{item.timeScore.guestOdd}}</div>
                     </div>
-                    <div class="guestTeam">
-                        <p>{{item.guestTeam.name}}<span>{{item.guestTeam.score}}</span></p>
-                        <div class="redCard" v-if="item.guestTeam.redCard != ''">{{item.guestTeam.redCard}}</div>
-                        <div class="yellowCard" v-if="item.guestTeam.yellowCard != ''">{{item.guestTeam.yellowCard}}</div>
+                    <div class="score">
+                        <div>{{item.score.state}}</div>
+                        <div>{{item.score.homeS}}</div>
+                        <div>{{item.score.guestS}}</div>
+                    </div>
+                    <div class="odds">
+                        <div class="corner">
+                            <div class="icon_flag" v-if="item.odds.corner != ''"></div>
+                            <span>{{item.odds.corner}}</span>
+                        </div>
+                        <div class="o1">{{item.odds.lOdd.o1}}</div>
+                        <div class="o4">{{item.odds.oOdd.o4}}</div>
+                    </div>
+                    <div class="odds">
+                        <div></div>
+                        <div class="o2">{{item.odds.lOdd.o2}}</div>
+                        <div class="o5">{{item.odds.oOdd.o5}}</div>
+                    </div>
+                    <div class="odds">
+                        <div class="follow" @click="item.follow = !item.follow ,local(item)">
+                            <div class="icon_star" :class="{ 'on': item.follow}"></div>
+                        </div>
+                        <div class="o3">{{item.odds.lOdd.o3}}</div>
+                        <div class="o6">{{item.odds.oOdd.o6}}</div>
                     </div>
                 </div>
-                <div class="timeScore">
-                    <div class="htit">{{item.timeScore.htit}}</div>
-                    <div>{{item.timeScore.homeOdd}}</div>
-                    <div>{{item.timeScore.guestOdd}}</div>
-                </div>
-                <div class="score">
-                    <div>{{item.score.state}}</div>
-                    <div>{{item.score.homeS}}</div>
-                    <div>{{item.score.guestS}}</div>
-                </div>
-                <div class="odds">
-                    <div class="corner">
-                        <div class="icon_flag" v-if="item.odds.corner != ''"></div>
-                        <span>{{item.odds.corner}}</span>
-                    </div>
-                    <div class="o1">{{item.odds.lOdd.o1}}</div>
-                    <div class="o4">{{item.odds.oOdd.o4}}</div>
-                </div>
-                <div class="odds">
-                    <div></div>
-                    <div class="o2">{{item.odds.lOdd.o2}}</div>
-                    <div class="o5">{{item.odds.oOdd.o5}}</div>
-                </div>
-                <div class="odds">
-                    <div class="follow" @click="item.follow = !item.follow ,local(item)">
-                        <div class="icon_star" :class="{ 'on': item.follow}"></div>
-                    </div>
-                    <div class="o3">{{item.odds.lOdd.o3}}</div>
-                    <div class="o6">{{item.odds.oOdd.o6}}</div>
-                </div>
-            </div>
-        </li>
-    </ul>
+            </li>
+        </ul>
+    </div>  
 </div>
 
 
@@ -58,6 +125,7 @@
     Vue.createApp({
         data() {
             return {
+                fllowLook:false,
                 listData: '',
                 time: '',
                 memory: [],
@@ -91,11 +159,21 @@
                     this.memory.splice(index, 1);
                 }
                 localStorage.setItem('localFlive', this.memory);
+                this.fllowLook = this.memory.length > 0 ? true : false
             }
         },
         mounted() {
             this.getData();
             this.timer = setInterval(this.getData, 1000 * 10);
+
+            let local = localStorage.getItem('localFlive');
+            if (local == '' || local == null) {
+                localStorage.setItem('localFlive', '');
+            } else {
+                this.memory = localStorage.getItem('localFlive').split(',');
+            }
+
+            this.fllowLook = this.memory.length > 0 ? true : false
         },
     }).mount("#gameList");
 </script>

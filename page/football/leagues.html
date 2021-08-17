@@ -1,8 +1,10 @@
 <div class="leaguesBox" id="leaguesBox">
+    <!-- 搜尋 -->
     <div class="league_filter">
         <input type="text" placeholder="Hãy nhập tên quốc gia" v-model="iptTxt" @keyup="filter()">
     </div>
-    <div class="league_follow">
+    <!-- 監視器 -->
+    <div class="monitor">
         <div class="title" :class="{ 'on': fllowLook}" @click="fllowLook = !fllowLook">
             <span>Theo dõi</span>
             <div class="icon_arrow"></div>
@@ -19,6 +21,8 @@
             </ul>
         </div>
     </div>
+
+    <!-- 國家清單 -->
     <div class="league_sort">
         <ul>
             <li v-for="(item,index) in filterData">

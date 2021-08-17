@@ -232,131 +232,137 @@ img {
 
 // gameList start
 .gameList {
-    ul {
-        display: flex;
-        flex-direction: column;
-    }
-    li {
-        position: relative;
-        display: flex;
-        flex-direction: column;
-        &.on {
-            order: -1;
-        }
-    }
-    li + li::before {
-        content: "";
-        width: 100%;
-        height: 1px;
-        background-color: #ccc;
-        @include pos(tl, 0);
-        transform: scaleY(0.5);
-    }
-    @at-root .gameDayrow {
-        height: 25px;
-        line-height: 25px;
-        text-align: center;
-        background-color: #f3f3f3;
-        color: #999;
-    }
-    @at-root .gameItem {
-        padding: 0 3px;
-        font-size: 0.6rem;
-        display: flex;
-        &.on {
-            order: -1;
-        }
-        .team {
-            width: 100%;
-            flex-shrink: 1;
-            & > div {
-                height: 22px;
-                line-height: 22px;
-                padding: 0 4px;
+    .monitor{
+        .title{
+            &.on+.live_list{
+                display: block;
             }
         }
-        .odds,
-        .score,
-        .timeScore {
-            flex-shrink: 0;
-            & > div {
-                min-width: 30px;
-                height: 22px;
-                line-height: 22px;
-                text-align: center;
-            }
+        .live_list{
+            display: none;
         }
-        .status {
-            span {
-                color: #f25a0a;
-                padding-left: 5px;
-            }
-        }
-        .guestTeam,
-        .homeTeam {
+    }
+    @at-root .live_list{
+        ul {
             display: flex;
-            span {
-                padding-left: 2px;
-                padding-right: 5px;
-                color: #828282;
-            }
-            .redCard,
-            .yellowCard {
-                height: 18px;
-                line-height: 20px;
-                padding: 0 2px;
-                display: inline;
-                border-radius: 2px;
-                color: #fff;
-                text-align: center;
-                position: relative;
-            }
-            .redCard {
-                background-color: #f00;
-            }
-            .yellowCard {
-                background-color: #f9c203;
-                margin-left: 3px;
-            }
+            flex-direction: column;
         }
-        .timeScore {
-            .htit {
-                color: #b4b4b4;
-            }
+        li {
+            position: relative;
+            display: flex;
+            flex-direction: column;
         }
-        .score {
-            color: #0ea922;
+        li + li::before {
+            content: "";
+            width: 100%;
+            height: 1px;
+            background-color: #ccc;
+            @include pos(tl, 0);
+            transform: scaleY(0.5);
         }
-        .odds {
-            .corner {
-                width: 40px;
-                display: flex;
-                align-items: center;
-                justify-content: center;
-                color: #929292;
-                @at-root .icon_flag {
-                    width: 12px;
-                    height: 12px;
-                    margin-right: 1px;
-                    background: url(../images/icon/flag.png) no-repeat center/cover;
+        @at-root .gameDayrow {
+            height: 25px;
+            line-height: 25px;
+            text-align: center;
+            background-color: #f3f3f3;
+            color: #999;
+        }
+        @at-root .gameItem {
+            padding: 0 3px 0 5px;
+            font-size: 0.6rem;
+            display: flex;
+            .team {
+                width: 100%;
+                flex-shrink: 1;
+                & > div {
+                    height: 22px;
+                    line-height: 22px;
+                    padding: 0 4px;
                 }
             }
-            .follow {
+            .odds,
+            .score,
+            .timeScore {
+                flex-shrink: 0;
+                & > div {
+                    min-width: 30px;
+                    height: 22px;
+                    line-height: 22px;
+                    text-align: center;
+                }
+            }
+            .status {
+                span {
+                    color: #f25a0a;
+                    padding-left: 5px;
+                }
+            }
+            .guestTeam,
+            .homeTeam {
                 display: flex;
-                align-items: center;
-                justify-content: center;
-                cursor: pointer;
-                @at-root .icon_star {
-                    width: 15px;
-                    height: 15px;
-                    background: url(../images/icon/star.svg) no-repeat center/cover;
-                    &.on {
-                        background-image: url(../images/icon/star_on.svg);
+                span {
+                    padding-left: 2px;
+                    padding-right: 5px;
+                    color: #828282;
+                }
+                .redCard,
+                .yellowCard {
+                    height: 18px;
+                    line-height: 20px;
+                    padding: 0 2px;
+                    display: inline;
+                    border-radius: 2px;
+                    color: #fff;
+                    text-align: center;
+                    position: relative;
+                }
+                .redCard {
+                    background-color: #f00;
+                }
+                .yellowCard {
+                    background-color: #f9c203;
+                    margin-left: 3px;
+                }
+            }
+            .timeScore {
+                .htit {
+                    color: #b4b4b4;
+                }
+            }
+            .score {
+                color: #0ea922;
+            }
+            .odds {
+                .corner {
+                    width: 40px;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    color: #929292;
+                    @at-root .icon_flag {
+                        width: 12px;
+                        height: 12px;
+                        margin-right: 1px;
+                        background: url(../images/icon/flag.png) no-repeat center/cover;
                     }
                 }
-            }
-            .o2 {
-                color: #0972bf;
+                .follow {
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    cursor: pointer;
+                    @at-root .icon_star {
+                        width: 15px;
+                        height: 15px;
+                        background: url(../images/icon/star.svg) no-repeat center/cover;
+                        &.on {
+                            background-image: url(../images/icon/star_on.svg);
+                        }
+                    }
+                }
+                .o2 {
+                    color: #0972bf;
+                }
             }
         }
     }
@@ -451,11 +457,32 @@ img {
     }
 }
 
+// 監視器
+.monitor{
+    .title {
+        height: 30px;
+        padding: 0 10px;
+        border-bottom: solid 1px #ccc;
+        background-color: #f1f1f1;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        cursor: pointer;
+        font-weight: 500;
+        &.on+.list{
+            display: block;
+        }
+        &.on .icon_arrow {
+            transform: rotate(180deg);
+        }
+    } 
+}
+
 // leaguesBox start
 .leaguesBox {
     color: #333;
     font-size: 0.8rem;
-    .icon_arrow {
+    @at-root .icon_arrow {
         width: 15px;
         height: 15px;
         background: url(../images/icon/arrow_b.svg) no-repeat center / cover;
