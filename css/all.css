@@ -713,4 +713,92 @@ img {
 .newsContent .nwdesc li {
   padding: 5px 10px;
 }
+
+.leaguesBox {
+  color: #333;
+  font-size: 0.8rem;
+}
+
+.leaguesBox .icon_arrow {
+  width: 15px;
+  height: 15px;
+  background: url(../images/icon/arrow_b.svg) no-repeat center/cover;
+  cursor: pointer;
+}
+
+.leaguesBox .icon_star {
+  cursor: pointer;
+}
+
+.leaguesBox .title {
+  height: 30px;
+  padding: 0 10px;
+  border-bottom: solid 1px #ccc;
+  background-color: #f1f1f1;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  cursor: pointer;
+  font-weight: 500;
+}
+
+.leaguesBox .title.on + .list {
+  display: block;
+}
+
+.leaguesBox .title.on .icon_arrow {
+  -webkit-transform: rotate(180deg);
+          transform: rotate(180deg);
+}
+
+.leaguesBox .list {
+  display: none;
+}
+
+.leaguesBox .list li {
+  height: 30px;
+  padding: 0 10px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  border-bottom: solid 1px #e5e5e5;
+}
+
+.league_filter input {
+  background: transparent;
+  outline: none;
+  border: none;
+  width: 100%;
+  padding-left: 30px;
+  padding-right: 5px;
+  line-height: 30px;
+  background: url(../images/icon/search.png) no-repeat 5px center/22px auto;
+  font-size: 0.85rem;
+}
+
+.league_sort .img {
+  width: 20px;
+  margin-right: 5px;
+}
+
+.league_sort .league {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
 /*# sourceMappingURL=all.css.map */

@@ -52,7 +52,7 @@ img {
                 border-radius: 5px;
                 box-shadow: 1px 1px 4px #c25432;
                 cursor: pointer;
-                &.on+.hd_selList {
+                &.on + .hd_selList {
                     display: block;
                 }
                 .icon.football {
@@ -106,7 +106,7 @@ img {
                         align-items: center;
                     }
                 }
-                li+li::before {
+                li + li::before {
                     content: "";
                     width: 100%;
                     height: 1px;
@@ -232,7 +232,6 @@ img {
 
 // gameList start
 .gameList {
-    
     ul {
         display: flex;
         flex-direction: column;
@@ -245,7 +244,7 @@ img {
             order: -1;
         }
     }
-    li+li::before {
+    li + li::before {
         content: "";
         width: 100%;
         height: 1px;
@@ -270,7 +269,7 @@ img {
         .team {
             width: 100%;
             flex-shrink: 1;
-            &>div {
+            & > div {
                 height: 22px;
                 line-height: 22px;
                 padding: 0 4px;
@@ -280,7 +279,7 @@ img {
         .score,
         .timeScore {
             flex-shrink: 0;
-            &>div {
+            & > div {
                 min-width: 30px;
                 height: 22px;
                 line-height: 22px;
@@ -364,7 +363,7 @@ img {
 }
 
 // newsList start
-.newsList { 
+.newsList {
     li {
         width: 100%;
         min-height: 114px;
@@ -375,7 +374,7 @@ img {
             justify-content: space-between;
         }
     }
-    li+li::before {
+    li + li::before {
         content: "";
         width: 100%;
         height: 1px;
@@ -452,3 +451,71 @@ img {
     }
 }
 
+// leaguesBox start
+.leaguesBox {
+    color: #333;
+    font-size: 0.8rem;
+    .icon_arrow {
+        width: 15px;
+        height: 15px;
+        background: url(../images/icon/arrow_b.svg) no-repeat center / cover;
+        cursor: pointer;
+    }
+
+    .icon_star{
+        cursor: pointer;
+    }
+
+    .title {
+        height: 30px;
+        padding: 0 10px;
+        border-bottom: solid 1px #ccc;
+        background-color: #f1f1f1;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        cursor: pointer;
+        font-weight: 500;
+        &.on+.list{
+            display: block;
+        }
+        &.on .icon_arrow {
+            transform: rotate(180deg);
+        }
+    } 
+
+    .list {
+        display: none;
+        li {
+            height: 30px;
+            padding: 0 10px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            border-bottom: solid 1px #e5e5e5;
+        }
+    }
+
+    @at-root .league_filter {
+        input {
+            @include fullNone;
+            width: 100%;
+            padding-left: 30px;
+            padding-right: 5px;
+            line-height: 30px;
+            background: url(../images/icon/search.png) no-repeat 5px center/22px auto;
+            font-size: 0.85rem;
+        }
+    }
+
+    @at-root .league_sort{
+        .img{
+            width: 20px;
+            margin-right: 5px;
+        }
+        .league{
+            display: flex;
+            align-items: center;
+        } 
+    }
+}

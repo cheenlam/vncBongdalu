@@ -11,8 +11,8 @@ Router.prototype.refresh = function() {
     // 路由清單
     let routerList = [
         '',
-        'football', 'football/score', 'football/live', 'football/news', 'football/results', 'football/today',
-        'basketball', 'basketball/score', 'basketball/live', 'basketball/results', 'basketball/today', 'basketball/nba', 'basketball/nbaChart', 'basketball/nbaToday', 'basketball/nbaTeam', 'basketball/nbaPlayer',
+        'football', 'football/score', 'football/live', 'football/news', 'football/results', 'football/today','football/leagues',
+        'basketball', 'basketball/score', 'basketball/live', 'basketball/results', 'basketball/today','basketball/nba', 'basketball/nbaChart', 'basketball/nbaToday', 'basketball/nbaTeam', 'basketball/nbaPlayer',
         'esports', 'esports/score', 'esports/results', 'esports/today',
     ];
 
@@ -73,6 +73,12 @@ Router.route('/football/news', function() {
     hdSel(0,1);
     mainInclude('page/football/news.html');
 });
+
+Router.route('/football/leagues', function() {
+    hdSel(0,2);
+    mainInclude('page/football/leagues.html');
+});
+
 
 for (let i = 0; i < 99; i++) {
     Router.route(`/football/news/list=${i}`, function() {

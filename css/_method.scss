@@ -20,3 +20,10 @@
         @return left;
     }
 }
+
+// 取消預設樣式
+@mixin fullNone {
+    background: transparent;
+    outline: none;
+    border: none;
+}

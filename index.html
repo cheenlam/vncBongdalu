@@ -126,7 +126,6 @@
 
 <script>
     var f_news;
-
     var vue_index = Vue.createApp({
         data() {
             return {
@@ -154,6 +153,9 @@
                     }, {
                         herf: "football/news",
                         txt: "Nhận định"
+                    }, {
+                        herf: "football/leagues",
+                        txt: "Kho dữ liêu"
                     }],
                     basketball: [{
                         herf: "basketball/score",
@@ -225,7 +227,7 @@
             };
         },
         methods: {
-            goTop(){
+            goTop() {
                 this.$refs.box.scrollTop = 0;
             },
             chHdcheck(index) {
@@ -239,7 +241,7 @@
             },
             getf_news() {
                 $.ajax({
-                    url: "https://spurslee.myqnapcloud.com:8081/GetJson.php?json=FootBallNews",
+                    url: "https://vnc88.awgstudio.com/api/football/news",
                     dataType: "json",
                     success: function(data) {
                         f_news = data;

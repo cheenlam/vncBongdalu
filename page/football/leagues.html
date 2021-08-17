@@ -1,0 +1,158 @@
+<div class="leaguesBox" id="leaguesBox">
+    <div class="league_filter">
+        <input type="text" placeholder="nhập từ khóa liên minh" v-model="iptTxt" @keyup="filter()">
+    </div>
+    <div class="league_follow">
+        <div class="title" :class="{ 'on': fllowLook,getLen}" @click="fllowLook = !fllowLook">
+            <span>Theo dõi</span>
+            <div class="icon_arrow"></div>
+        </div>
+
+        <div class="list">
+            <ul v-for="(i,index) in listData">
+                <template v-for="(item,index) in i.leagues">
+                    <li v-if="item.follow"> 
+                        <span>{{item.leagueName}}</span>
+                        <div class="icon_star" :class="{ 'on': item.follow}" @click="item.follow = !item.follow, local(item)"></div>
+                    </li>
+                </template>
+            </ul>
+        </div>
+    </div>
+    <div class="league_sort">
+        <ul>
+            <li v-for="(item,index) in filterData">
+                <div class="title" :class="{ 'on': item.look}" @click="item.look = !item.look">
+                    <div class="league">
+                        <div class="img">
+                            <img :src="item.img">
+                        </div>
+                        <span>{{split(item.country)}}</span>
+                    </div>
+                    <div class="icon_arrow"></div>
+                </div>
+                <div class="list">
+                    <ul>
+                        <li v-for="(item,index) in item.leagues">
+                            <span>{{item.leagueName}}</span>
+                            <div class="icon_star" :class="{ 'on': item.follow}" @click="item.follow = !item.follow, local(item)"></div>
+                        </li>
+                    </ul>
+                </div>
+            </li>
+        </ul>
+    </div>
+</div>
+
+<script>
+    Vue.createApp({
+        data() {
+            return {
+                iptTxt: '',
+                fllowLook: false,
+                memory: [],
+                filterData: '',
+                listData: '',
+                // listData: [{
+                //     country: "item_A",
+                //     img: "https://www.bongdalu.vip/images/country/57-flag-small.png",
+                //     leagues: [{
+                //         leagueNo: "01",
+                //         leagueName: "A01"
+                //     }, {
+                //         leagueNo: "02",
+                //         leagueName: "A02"
+                //     }, {
+                //         leagueNo: "03",
+                //         leagueName: "A03"
+                //     }, ]
+                // }, {
+                //     country: "item_B",
+                //     img: "https://www.bongdalu.vip/images/country/70-flag-small.png",
+                //     leagues: [{
+                //         leagueNo: "04",
+                //         leagueName: "B01"
+                //     }, {
+                //         leagueNo: "05",
+                //         leagueName: "B02"
+                //     }, {
+                //         leagueNo: "06",
+                //         leagueName: "B03"
+                //     }, ]
+                // }, ],
+            };
+        },
+
+        methods: {
+            filter() {
+                let resArr = [];
+                let txt = this.iptTxt.trim()
+                if (this.iptTxt == '') {
+                    resArr = this.listData
+                } else {
+                    this.listData.filter(function(e) {
+                        if (e.country.split('(')[0] == txt) {
+                            resArr.push(e);
+                        }
+                    })
+                }
+                
+                this.filterData = resArr;
+            },
+            split: function(data) {
+                return data.split('(').join(' (');
+            },
+            local(item) {
+                let data = item.leagueNo;
+                if (this.memory.indexOf(data) == -1) {
+                    this.memory.push(data)
+                } else {
+                    let index = this.memory.indexOf(data, 0);
+                    this.memory.splice(index, 1);
+                }
+                localStorage.setItem('localFleague', this.memory);
+                this.fllowLook = this.memory.length > 0 ? true : false
+
+            },
+            getLen() {
+                let len = this.memory.length;
+                if (len > 0) {
+                    return true
+                } else {
+                    return false
+                }
+            },
+            getData() {
+                var self = this;
+                $.ajax({
+                    url: "https://vnc88.awgstudio.com/api/football/league",
+                    dataType: "json",
+                    success: function(data) {
+                        self.filterData =  self.listData = data;  
+                        self.listData.forEach(function(item) {
+                            item.leagues.forEach(function(league) {
+                                let data = league.leagueNo;
+                                if (self.memory.indexOf(data) == -1) {
+                                    league.follow = false;
+                                } else {
+                                    league.follow = true;
+                                }
+                            })
+                        })
+                    },
+                });
+            },
+        },
+        mounted() {
+            this.getData();
+            this.filter()
+            let local = localStorage.getItem('localFleague');
+            if (local == '' || local == null) {
+                localStorage.setItem('localFleague', '');
+            } else {
+                this.memory = localStorage.getItem('localFleague').split(',');
+            }
+            this.fllowLook = this.memory.length > 0 ? true : false;
+        },
+    }).mount("#leaguesBox");
+</script>
