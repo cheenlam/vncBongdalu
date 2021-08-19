@@ -245,9 +245,9 @@
                     dataType: "json",
                     success: function(data) {
                         f_news = data;
-                        let getIndex = localStorage.getItem('newsContent')
-                        $("#newsContent").html(data[getIndex].context);
-                        $('#newsContent .nwrecent').remove();
+                        let getIndex = localStorage.getItem('newsCnt')
+                        $("#newsCnt").html(data[getIndex].context);
+                        $('#newsCnt .nwrecent').remove();
                     },
                 });
             },

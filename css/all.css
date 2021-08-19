@@ -1,3 +1,4 @@
+@charset "UTF-8";
 html, body, div, span, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, font, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, caption {
   margin: 0;
   padding: 0;
@@ -392,23 +393,25 @@ img {
 }
 
 .bankTool .goBank {
-  height: 100%;
-  padding-left: 20px;
+  height: 35px;
+  line-height: 35px;
+  padding-left: 42px;
+  padding: 0 10px 0 40px;
   color: #fff;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
   cursor: pointer;
+  display: inline-block;
+  position: relative;
 }
 
 .bankTool .icon {
   width: 22px;
   height: 22px;
-  margin-right: 5px;
+  margin: auto;
   background: url(../images/icon/bank.svg) no-repeat center/cover;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 10px;
 }
 
 .gameList .monitor .title.on + .live_list {
@@ -655,26 +658,26 @@ img {
       flex-shrink: 0 !important;
 }
 
-.newsContent {
+.newsCnt {
   padding-bottom: 50px;
   font-size: 0.8rem;
   overflow-y: auto;
 }
 
-.newsContent::-webkit-scrollbar {
+.newsCnt::-webkit-scrollbar {
   width: 10px;
   background-color: #fff;
 }
 
-.newsContent::-webkit-scrollbar-thumb {
+.newsCnt::-webkit-scrollbar-thumb {
   background-color: #f25a0a;
 }
 
-.newsContent table {
+.newsCnt table {
   width: 100%;
 }
 
-.newsContent .nwtitle {
+.newsCnt .nwtitle {
   text-align: left;
   padding: 10px 10px 0 10px;
   color: #333;
@@ -682,7 +685,7 @@ img {
   font-weight: bold;
 }
 
-.newsContent .nwinfo {
+.newsCnt .nwinfo {
   padding: 0 10px;
   color: #a1a1a1;
   font-size: 12px;
@@ -691,22 +694,22 @@ img {
   border-bottom: solid 1px #e1e1e1;
 }
 
-.newsContent .nwinfo .nwdate {
+.newsCnt .nwinfo .nwdate {
   float: right;
 }
 
-.newsContent .nwcontent {
+.newsCnt .nwcontent {
   padding: 10px 16px;
   line-height: 24px;
   color: #333;
   border-bottom: 1px #ccc solid;
 }
 
-.newsContent .nwdesc {
+.newsCnt .nwdesc {
   color: #707070;
 }
 
-.newsContent .nwdesc li {
+.newsCnt .nwdesc li {
   padding: 5px 10px;
 }
 
@@ -799,6 +802,23 @@ img {
   border-bottom: solid 1px #e5e5e5;
 }
 
+.leaguesBox .list li a {
+  width: 100%;
+  height: 100%;
+}
+
+.leaguesBox .list li span {
+  width: 100%;
+  height: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  cursor: pointer;
+}
+
 .league_filter input {
   background: transparent;
   outline: none;
@@ -823,5 +843,202 @@ img {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+}
+
+.leaguesCnt .select {
+  border-bottom: 1px solid #ccc;
+}
+
+.leaguesCnt .select ul {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.leaguesCnt .select li {
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+  height: 30px;
+  line-height: 30px;
+  text-align: center;
+  cursor: pointer;
+  position: relative;
+}
+
+.leaguesCnt .select li.on {
+  color: #f25a0a;
+  font-weight: bold;
+}
+
+.leaguesCnt .select li.on::before {
+  content: "";
+  width: 100%;
+  height: 2px;
+  background-color: #f25a0a;
+  position: absolute;
+  left: 0;
+  bottom: 0;
+}
+
+.leaguesCnt .showData {
+  font-size: 0.8rem;
+  min-height: 100px;
+  background-color: #fff;
+  position: relative;
+}
+
+.leaguesCnt .showData::before {
+  content: 'Chưa có dữ liệu';
+  width: calc(100% - 20px);
+  max-width: 300px;
+  margin: 20px auto;
+  height: 50px;
+  line-height: 50px;
+  border: 1px solid #ccc;
+  -webkit-box-shadow: 1px 1px 3px #a5a5a5;
+          box-shadow: 1px 1px 3px #a5a5a5;
+  text-align: center;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: 0;
+}
+
+.leaguesCnt .showData table {
+  background-color: #fff;
+  position: relative;
+  z-index: 1;
+}
+
+.leaguesCnt .showData .noData {
+  width: 100%;
+  min-height: 100px;
+  background-color: #fff;
+  position: relative;
+  z-index: 1;
+}
+
+.leaguesCnt .showData .noData p {
+  width: calc(100% - 20px);
+  max-width: 300px;
+  height: 50px;
+  line-height: 50px;
+  margin: 10px auto;
+  border: 1px solid #ccc;
+  -webkit-box-shadow: 1px 1px 3px #a5a5a5;
+          box-shadow: 1px 1px 3px #a5a5a5;
+  text-align: center;
+}
+
+.leaguesCnt .showData .eTable tr {
+  border-bottom: 1px solid #e5e5e5;
+}
+
+.leaguesCnt .showData .eTable th {
+  padding: 0 3px;
+  height: 26px;
+  font-weight: bold;
+  background: #f5f5f5;
+  border-bottom: solid 1px #e8e8e8;
+  color: #999;
+  border-right: none;
+}
+
+.leaguesCnt .showData .eTable td {
+  min-height: 28px;
+  text-align: center;
+}
+
+.leaguesCnt .showData .eTable td.lRow {
+  padding-left: 6px;
+  text-align: left;
+}
+
+.leaguesCnt .showData .eTable.adaptMt td {
+  height: 28px;
+  background: #fff;
+  border-bottom: solid 1px #e8e8e8;
+  border-right: none;
+}
+
+.leaguesCnt .showData .eTable .exbar {
+  padding: 5px;
+  line-height: normal;
+  color: green;
+  background-color: #ffffe8;
+  text-align: left;
+}
+
+.leaguesCnt .showData .name,
+.leaguesCnt .showData .team {
+  text-align: left;
+  font-weight: 500;
+  line-height: 20px;
+}
+
+.leaguesCnt .showData .blue,
+.leaguesCnt .showData .blue a {
+  color: #0972bf !important;
+}
+
+.leaguesCnt .showData .home,
+.leaguesCnt .showData .guest,
+.leaguesCnt .showData .play {
+  padding: 3px;
+  text-align: left !important;
+}
+
+.leaguesCnt .showData .b {
+  font-weight: bold !important;
+}
+
+.leaguesCnt .showData .FT {
+  width: 28px;
+  font-weight: bold;
+  color: #ea5128;
+  padding: 3px;
+  background: #ebebeb;
+  border-radius: 2px;
+  margin: 1px auto 1px auto;
+}
+
+.leaguesCnt .showData .HT {
+  font-weight: bold;
+  color: #999;
+  padding: 3px;
+}
+
+.leaguesCnt .showData .yellowCard {
+  text-align: center;
+  font-style: normal;
+  background: #f9c203;
+  border-radius: 2px;
+  color: #fff;
+  margin: 0 1px;
+  display: inline-block;
+  padding: 0 2px;
+  width: auto;
+  min-width: 14px;
+  height: 18px;
+  line-height: 18px;
+  font-weight: normal;
+}
+
+.leaguesCnt .showData .redCard {
+  text-align: center;
+  font-style: normal;
+  background: #e9481e;
+  border-radius: 2px;
+  color: #fff;
+  margin: 0 1px;
+  display: inline-block;
+  padding: 0 2px;
+  width: auto;
+  min-width: 14px;
+  height: 18px;
+  line-height: 18px;
+  font-weight: normal;
 }
 /*# sourceMappingURL=all.css.map */

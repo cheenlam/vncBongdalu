@@ -1,7 +1,7 @@
 <div class="newsList" id="newsList">
     <ul>
         <li v-for="(item, index) in listData">
-            <a :href=`#/football/news/list=${index}` v-if="item.img != '/images/vn/newDef.gif'">
+            <a :href=`#/football/news?list=${index}` v-if="item.img != '/images/vn/newDef.gif'">
                 <div class="newsMsg">
                     <div class="title">{{split(item.left.atitle)}}</div>
                     <div class="date">{{item.left.date}}</div>
@@ -32,7 +32,7 @@
                     url: "https://vnc88.awgstudio.com/api/football/news",
                     dataType: "json",
                     success: function(data) {
-                        self.listData = data;   
+                        self.listData = data;
                     },
                 });
             },
@@ -40,8 +40,7 @@
         mounted() {
             this.getData();
             this.listData = f_news;
-            this.timer = setInterval(this.getData, 1000*10);
+            this.timer = setInterval(this.getData, 1000 * 10);
         },
     }).mount("#newsList");
-
 </script>

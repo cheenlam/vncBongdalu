@@ -58,9 +58,9 @@
                             </div>
                         </div>
                     </li>
-                </template> 
+                </template>
             </ul>
-        </div> 
+        </div>
     </div>
 
     <!-- live清單 -->
@@ -117,7 +117,7 @@
                 </div>
             </li>
         </ul>
-    </div>  
+    </div>
 </div>
 
 
@@ -125,7 +125,7 @@
     Vue.createApp({
         data() {
             return {
-                fllowLook:false,
+                fllowLook: false,
                 listData: '',
                 time: '',
                 memory: [],
@@ -143,7 +143,7 @@
                             let data = item.team.status.time + item.team.status.gameName + item.homeTeam.name;
                             if (self.memory.indexOf(data) == -1) {
                                 item.follow = false;
-                            }else{
+                            } else {
                                 item.follow = true;
                             }
                         })

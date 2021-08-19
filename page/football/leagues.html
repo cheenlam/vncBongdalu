@@ -14,7 +14,9 @@
             <ul v-for="(i,index) in listData">
                 <template v-for="(item,index) in i.leagues">
                     <li v-if="item.follow"> 
-                        <span>{{item.leagueName}}</span>
+                        <a :href="goLink(item)">
+                            <span>{{item.leagueName}}</span>
+                        </a>
                         <div class="icon_star" :class="{ 'on': item.follow}" @click="item.follow = !item.follow, local(item)"></div>
                     </li>
                 </template>
@@ -22,14 +24,14 @@
         </div>
     </div>
 
-    <!-- 國家清單 -->
+    <!-- 聯盟清單 -->
     <div class="league_sort">
         <ul>
             <li v-for="(item,index) in filterData">
-                <div class="title" :class="{ 'on': item.look}" @click="item.look = !item.look">
+                <div class="title" :class="{ 'on': item.look}" @click="item.look = !item.look" >
                     <div class="league">
-                        <div class="img">
-                            <img :src="item.img">
+                        <div class="img" >
+                            <img :src="item.img" :onerror="errorFlag">
                         </div>
                         <span>{{split(item.country)}}</span>
                     </div>
@@ -38,7 +40,9 @@
                 <div class="list">
                     <ul>
                         <li v-for="(item,index) in item.leagues">
-                            <span>{{item.leagueName}}</span>
+                            <a :href="goLink(item)">
+                                <span>{{item.leagueName}}</span>
+                            </a>
                             <div class="icon_star" :class="{ 'on': item.follow}" @click="item.follow = !item.follow, local(item),getLen()"></div>
                         </li>
                     </ul>
@@ -57,37 +61,15 @@
                 memory: [],
                 filterData: '',
                 listData: '',
-                // listData: [{
-                //     country: "item_A",
-                //     img: "https://www.bongdalu.vip/images/country/57-flag-small.png",
-                //     leagues: [{
-                //         leagueNo: "01",
-                //         leagueName: "A01"
-                //     }, {
-                //         leagueNo: "02",
-                //         leagueName: "A02"
-                //     }, {
-                //         leagueNo: "03",
-                //         leagueName: "A03"
-                //     }, ]
-                // }, {
-                //     country: "item_B",
-                //     img: "https://www.bongdalu.vip/images/country/70-flag-small.png",
-                //     leagues: [{
-                //         leagueNo: "04",
-                //         leagueName: "B01"
-                //     }, {
-                //         leagueNo: "05",
-                //         leagueName: "B02"
-                //     }, {
-                //         leagueNo: "06",
-                //         leagueName: "B03"
-                //     }, ]
-                // }, ],
+                errorFlag: 'this.src="../images/errorFlag.jpg"'
             };
         },
 
         methods: {
+            goLink(item) {
+                let noNum = item.leagueNo;
+                return `#/football/leagues?noNum=${noNum}`
+            },
             filter() {
                 let resArr = [];
                 let txt = this.iptTxt.trim()
@@ -100,7 +82,7 @@
                         }
                     })
                 }
-                
+
                 this.filterData = resArr;
             },
             split: function(data) {
@@ -131,7 +113,7 @@
                     url: "https://vnc88.awgstudio.com/api/football/league",
                     dataType: "json",
                     success: function(data) {
-                        self.filterData =  self.listData = data;  
+                        self.filterData = self.listData = data;
                         self.listData.forEach(function(item) {
                             item.leagues.forEach(function(league) {
                                 let data = league.leagueNo;

@@ -11,13 +11,17 @@ Router.prototype.refresh = function() {
     // 路由清單
     let routerList = [
         '',
-        'football', 'football/score', 'football/live', 'football/news', 'football/results', 'football/today','football/leagues',
-        'basketball', 'basketball/score', 'basketball/live', 'basketball/results', 'basketball/today','basketball/nba', 'basketball/nbaChart', 'basketball/nbaToday', 'basketball/nbaTeam', 'basketball/nbaPlayer',
+        'football', 'football/score', 'football/live', 'football/news', 'football/results', 'football/today', 'football/leagues',
+        'basketball', 'basketball/score', 'basketball/live', 'basketball/results', 'basketball/today', 'basketball/nba', 'basketball/nbaChart', 'basketball/nbaToday', 'basketball/nbaTeam', 'basketball/nbaPlayer',
         'esports', 'esports/score', 'esports/results', 'esports/today',
     ];
 
     for (let i = 0; i < 99; i++) {
-        routerList.push(`football/news/list=${i}`)
+        routerList.push(`football/news?list=${i}`)
+    }
+
+    for (let i = 0; i < 9999; i++) {
+        routerList.push(`football/leagues?noNum=${i}`)
     }
 
     //获取到相应的hash值
@@ -48,117 +52,126 @@ window.Router.init();
 // 路由呼叫路徑
 // ======= 足球 =======
 Router.route('/football', function() {
-    hdSel(0,0);
-     mainInclude('page/football/live.html');
+    hdSel(0, 0);
+    mainInclude('page/football/live.html');
 });
 Router.route('/football/score', function() {
-    hdSel(0,0);
+    hdSel(0, 0);
     mainInclude('page/football/live.html');
 });
 Router.route('/football/live', function() {
-    hdSel(0,0);
+    hdSel(0, 0);
     mainInclude('page/football/live.html');
 });
 
 Router.route('/football/results', function() {
-    hdSel(0,0);
+    hdSel(0, 0);
     mainInclude('page/football/results.html');
 });
 Router.route('/football/today', function() {
-    hdSel(0,0);
+    hdSel(0, 0);
     mainInclude('page/football/today.html');
 });
 
 Router.route('/football/news', function() {
-    hdSel(0,1);
+    hdSel(0, 1);
     mainInclude('page/football/news.html');
 });
 
 Router.route('/football/leagues', function() {
-    hdSel(0,2);
+    hdSel(0, 2);
     mainInclude('page/football/leagues.html');
 });
 
 
 for (let i = 0; i < 99; i++) {
-    Router.route(`/football/news/list=${i}`, function() {
-        hdSel(0,1);
-        localStorage.setItem('newsContent',i)
-        vue_index.ckBank = false; 
-        mainInclude(`page/football/newsContent.html`);
+    Router.route(`/football/news?list=${i}`, function() {
+        hdSel(0, 1);
+        localStorage.setItem('newsCnt', i)
+        vue_index.ckBank = false;  // 切換是否顯示返回頁簽
+        mainInclude(`page/football/newsCnt.html`);
+    });
+}
+
+for (let i = 0; i < 9999; i++) {
+    Router.route(`/football/leagues?noNum=${i}`, function() {
+        hdSel(0, 1);
+        localStorage.setItem('leaguesCnt', i)
+        vue_index.ckBank = false; // 切換是否顯示返回頁簽
+        mainInclude(`page/football/leaguesCnt.html`);
     });
 }
 
 // ======= 籃球 =======
 Router.route('/basketball', function() {
-    hdSel(1,0);
+    hdSel(1, 0);
     mainInclude('page/basketball/live.html');
 });
 
 Router.route('/basketball/score', function() {
-    hdSel(1,0);
+    hdSel(1, 0);
     mainInclude('page/basketball/live.html');
 });
 
 Router.route('/basketball/live', function() {
-    hdSel(1,0);
+    hdSel(1, 0);
     mainInclude('page/basketball/live.html');
 });
 
 Router.route('/basketball/results', function() {
-    hdSel(1,0);
+    hdSel(1, 0);
     mainInclude('page/basketball/results.html');
 });
 
 Router.route('/basketball/today', function() {
-    hdSel(1,0);
+    hdSel(1, 0);
     mainInclude('page/basketball/today.html');
 });
 
 
 Router.route('/basketball/nba', function() {
-    hdSel(1,1);
+    hdSel(1, 1);
     mainInclude('page/basketball/nbaChart.html');
 });
 
 Router.route('/basketball/nbaChart', function() {
-     hdSel(1,1);
+    hdSel(1, 1);
     localStorage.setItem('secondSort', '0');
     mainInclude('page/basketball/nbaChart.html');
 });
 
 Router.route('/basketball/nbaToday', function() {
-     hdSel(1,1);
+    hdSel(1, 1);
     mainInclude('page/basketball/nbaToday.html');
 });
 
 Router.route('/basketball/nbaTeam', function() {
-     hdSel(1,1);
+    hdSel(1, 1);
     mainInclude('page/basketball/nbaTeam.html');
 });
 
 Router.route('/basketball/nbaPlayer', function() {
-     hdSel(1,1);
-     mainInclude('page/basketball/nbaPlayer.html');
+    hdSel(1, 1);
+    mainInclude('page/basketball/nbaPlayer.html');
 });
 
 // ======= 電競 =======
 Router.route('/esports', function() {
-    hdSel(2,0);
+    hdSel(2, 0);
     mainInclude('page/esports/score.html');
 });
 Router.route('/esports/score', function() {
-    hdSel(2,0);
+    hdSel(2, 0);
     mainInclude('page/esports/score.html');
 });
 
 Router.route('/esports/results', function() {
-    hdSel(2,0);
+    hdSel(2, 0);
     mainInclude('page/esports/results.html');
 });
 
 Router.route('/esports/today', function() {
-    hdSel(2,0);
+    hdSel(2, 0);
     mainInclude('page/esports/today.html');
 });
 
@@ -186,8 +199,8 @@ function mainInclude(src) {
 }
 
 // 主要選擇項目
-function hdSel(check,main) {
-    vue_index.ckBank = true; 
+function hdSel(check, main) {
+    vue_index.ckBank = true;
     vue_index.hd_checkIndex = check;
     vue_index.hd_checked = false;
     vue_index.mainIndex = main;

@@ -1,0 +1,50 @@
+<div class="leaguesCnt" id="leaguesCnt">
+    <div class="select">
+        <ul>
+            <li v-for="(item,index) in listData" @click="chShow(index)" :class="{'on' : index == listNum}">
+                {{item.tabName}}
+            </li>
+        </ul>
+    </div>
+
+    <div class="showData">
+        <template v-for="(item,index) in listData">
+            <div v-html="item.content" v-if="index == listNum && item.content != 'None'"></div>
+            <div class="noData" v-else-if="index == listNum && item.content == 'None'">
+                <p>Chưa có dữ liệu</p>
+            </div>
+        </template>
+    </div>
+</div>
+<!-- 392 -->
+
+<script>
+    Vue.createApp({
+        data() {
+            return {
+                listData:'',
+                listNum: 0,
+            };
+        },
+        methods: {
+            chShow(num){
+                this.listNum = num;
+            },
+            getData() {
+                let self = this;
+                let getNum = localStorage.getItem('leaguesCnt')
+                $.ajax({
+                    url: `https://vnc88.awgstudio.com/api/football/league/${getNum}`,
+                    dataType: "json",
+                    success: function(data) { 
+                        console.log(data)                     
+                       self.listData = data;
+                    },
+                });
+            },
+        },
+        mounted() {
+            this.getData()
+        },
+    }).mount("#leaguesCnt");
+</script>

@@ -1,0 +1,20 @@
+<!-- newsCnt start -->
+<div class="newsCnt" id="newsCnt" v-html="listData">
+</div>
+
+<script>
+    Vue.createApp({
+        data() {
+            return {
+                listData: '',
+            };
+        },
+        methods: {},
+        mounted() {
+            this.listData = f_news;
+            let getIndex = localStorage.getItem('newsCnt');
+            $("#newsCnt").html(this.listData[getIndex].context);
+            $('#newsCnt .nwrecent').remove();
+        },
+    }).mount("#newsCnt");
+</script>
