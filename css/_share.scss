@@ -602,6 +602,11 @@ img {
             text-align: center;
             @include pos(tbrl,0);
         }
+
+        &.on::before{
+            display: none;
+        }
+
         table{
             background-color: #fff;
             position: relative;

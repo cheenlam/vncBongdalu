@@ -906,6 +906,10 @@ img {
   left: 0;
 }
 
+.leaguesCnt .showData.on::before {
+  display: none;
+}
+
 .leaguesCnt .showData table {
   background-color: #fff;
   position: relative;

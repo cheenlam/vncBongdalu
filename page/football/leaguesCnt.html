@@ -1,13 +1,13 @@
 <div class="leaguesCnt" id="leaguesCnt">
     <div class="select">
         <ul>
-            <li v-for="(item,index) in listData" @click="chShow(index)" :class="{'on' : index == listNum}">
+            <li v-for="(item,index) in listData" @click="chShow(item,index)" :class="{'on' : index == listNum}">
                 {{item.tabName}}
             </li>
         </ul>
     </div>
 
-    <div class="showData">
+    <div class="showData" :class="{'on':hasData}">
         <template v-for="(item,index) in listData">
             <div v-html="item.content" v-if="index == listNum && item.content != 'None'"></div>
             <div class="noData" v-else-if="index == listNum && item.content == 'None'">
@@ -16,19 +16,20 @@
         </template>
     </div>
 </div>
-<!-- 392 -->
 
 <script>
     Vue.createApp({
         data() {
             return {
-                listData:'',
+                listData: '',
                 listNum: 0,
+                hasData: false,
             };
         },
         methods: {
-            chShow(num){
+            chShow(item, num) {
                 this.listNum = num;
+                this.hasData = item.content != '' ? true : false
             },
             getData() {
                 let self = this;
@@ -36,9 +37,9 @@
                 $.ajax({
                     url: `https://vnc88.awgstudio.com/api/football/league/${getNum}`,
                     dataType: "json",
-                    success: function(data) { 
-                        console.log(data)                     
-                       self.listData = data;
+                    success: function(data) {
+                        self.chShow(data[0], 0)
+                        self.listData = data;
                     },
                 });
             },
