@@ -910,18 +910,8 @@ img {
   display: none;
 }
 
-.leaguesCnt .showData table {
-  background-color: #fff;
-  position: relative;
-  z-index: 1;
-}
-
 .leaguesCnt .showData .noData {
   width: 100%;
-  min-height: 100px;
-  background-color: #fff;
-  position: relative;
-  z-index: 1;
 }
 
 .leaguesCnt .showData .noData p {
