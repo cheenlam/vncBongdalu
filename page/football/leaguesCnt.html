@@ -45,8 +45,10 @@
                     url: `https://vnc88.awgstudio.com/api/football/league/${getNum}`,
                     dataType: "json",
                     success: function(data) {
-                        self.chShow(data[0], 0)
-                        self.listData = data;             
+                        if(data.length > 0){
+                            self.chShow(data[0], 0)
+                            self.listData = data;  
+                        }                
                     },
                 });
             },
@@ -65,7 +67,7 @@
                                 }
                             })
                         });
-                        self.title = getName
+                        self.title = getName;
                     },
                 });
             },
@@ -79,7 +81,7 @@
                     let index = this.memory.indexOf(num, 0);
                     this.memory.splice(index, 1);
                 }else{
-                    this.memory.push(num)
+                    this.memory.push(num);
                 }
 
                 localStorage.setItem('localFleague', this.memory);

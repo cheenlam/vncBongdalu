@@ -28,9 +28,9 @@
     <div class="league_sort">
         <ul>
             <li v-for="(item,index) in filterData">
-                <div class="title" :class="{ 'on': item.look}" @click="item.look = !item.look" >
+                <div class="title" :class="{ 'on': item.look}" @click="item.look = !item.look">
                     <div class="league">
-                        <div class="img" >
+                        <div class="img">
                             <img :src="item.img" :onerror="errorFlag">
                         </div>
                         <span>{{split(item.country)}}</span>
@@ -124,7 +124,7 @@
                                 }
                             })
                         })
-                    },
+                    }
                 });
             },
         },
