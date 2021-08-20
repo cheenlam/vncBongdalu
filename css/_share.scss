@@ -558,6 +558,23 @@ img {
 
 // leaguesCnt start
 .leaguesCnt {
+    .title{
+        height: 45px;
+        padding: 0 10px;
+        font-size: 1rem;
+        font-weight: bold;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        border-bottom: 1px solid #ccc;
+
+        .icon_star {
+            width: 18px;
+            height: 18px;
+            cursor: pointer;
+        }
+    }
+
     .select {
         border-bottom: 1px solid #ccc;
         ul {
@@ -606,8 +623,6 @@ img {
         &.on::before{
             display: none;
         }
-
-        
         .noData {
             width: 100%;
             p{
@@ -660,16 +675,19 @@ img {
                 text-align: left;
             }
         }
+
         .name,
         .team {
             text-align: left;
             font-weight: 500;
             line-height: 20px;
         }
+
         .blue,
         .blue a {
             color: #0972bf !important;
         }
+
         .home,
         .guest,
         .play {
@@ -680,6 +698,7 @@ img {
         .b {
             font-weight: bold !important;
         }
+
         .FT {
             width: 28px;
             font-weight: bold;
@@ -689,40 +708,34 @@ img {
             border-radius: 2px;
             margin: 1px auto 1px auto;
         }
+
         .HT {
             font-weight: bold;
             color: #999;
             padding: 3px;
         }
-        .yellowCard {
-            text-align: center;
-            font-style: normal;
-            background: #f9c203;
-            border-radius: 2px;
-            color: #fff;
-            margin: 0 1px;
-            display: inline-block;
-            padding: 0 2px;
+
+        .redCard,
+        .yellowCard{
             width: auto;
             min-width: 14px;
             height: 18px;
+            padding: 0 2px;
+            margin: 0 1px;
             line-height: 18px;
+            border-radius: 2px;
             font-weight: normal;
+            text-align: center;
+            font-style: normal;
+            color: #fff;
+            display: inline-block;            
+        }
+        
+        .yellowCard {  
+            background: #f9c203;      
         }
         .redCard {
-            text-align: center;
-            font-style: normal;
-            background: #e9481e;
-            border-radius: 2px;
-            color: #fff;
-            margin: 0 1px;
-            display: inline-block;
-            padding: 0 2px;
-            width: auto;
-            min-width: 14px;
-            height: 18px;
-            line-height: 18px;
-            font-weight: normal;
+            background: #e9481e;  
         }
     }
 }

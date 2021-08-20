@@ -1,4 +1,8 @@
 <div class="leaguesCnt" id="leaguesCnt">
+    <div class="title">
+        <span>{{title}}</span>
+        <div class="icon_star" :class="{'on': follow}" @click=" change()"></div>
+    </div>
     <div class="select">
         <ul>
             <li v-for="(item,index) in listData" @click="chShow(item,index)" :class="{'on' : index == listNum}">
@@ -21,9 +25,12 @@
     Vue.createApp({
         data() {
             return {
+                title: '',
                 listData: '',
                 listNum: 0,
                 hasData: false,
+                follow: false,
+                memory: [],
             };
         },
         methods: {
@@ -39,13 +46,57 @@
                     dataType: "json",
                     success: function(data) {
                         self.chShow(data[0], 0)
-                        self.listData = data;
+                        self.listData = data;             
                     },
                 });
             },
+            getTitle() {
+                let self = this;
+                let getNum = localStorage.getItem('leaguesCnt');
+                $.ajax({
+                    url: `https://vnc88.awgstudio.com/api/football/league`,
+                    dataType: "json",
+                    success: function(data) {   
+                        let getName;
+                        data.forEach(function(item) {
+                            item.leagues.forEach(function(league) {
+                                if (league.leagueNo == getNum) {
+                                    getName = league.leagueName;
+                                }
+                            })
+                        });
+                        self.title = getName
+                    },
+                });
+            },
+            chFollow() {    
+                let num = localStorage.getItem('leaguesCnt');
+                this.follow = this.memory.indexOf(num) != -1 ? true : false;
+            },
+            change() {
+                let num = localStorage.getItem('leaguesCnt');
+                if(this.memory.indexOf(num) != -1){
+                    let index = this.memory.indexOf(num, 0);
+                    this.memory.splice(index, 1);
+                }else{
+                    this.memory.push(num)
+                }
+
+                localStorage.setItem('localFleague', this.memory);
+                this.chFollow() 
+            }
         },
         mounted() {
-            this.getData()
+            let local = localStorage.getItem('localFleague');
+            if (local == '' || local == null) {
+                localStorage.setItem('localFleague', '');
+            } else {
+                this.memory = localStorage.getItem('localFleague').split(',');
+            }
+
+            this.getData();
+            this.getTitle();
+            this.chFollow();
         },
     }).mount("#leaguesCnt");
 </script>

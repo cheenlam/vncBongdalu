@@ -17,7 +17,7 @@
                         <a :href="goLink(item)">
                             <span>{{item.leagueName}}</span>
                         </a>
-                        <div class="icon_star" :class="{ 'on': item.follow}" @click="item.follow = !item.follow, local(item)"></div>
+                        <div class="icon_star" :class="{'on': item.follow}" @click="item.follow = !item.follow, local(item)"></div>
                     </li>
                 </template>
             </ul>
