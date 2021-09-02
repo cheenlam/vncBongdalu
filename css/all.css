@@ -713,6 +713,10 @@ img {
   padding: 5px 10px;
 }
 
+.newsCnt .nwrecent {
+  display: none;
+}
+
 .monitor .title {
   height: 30px;
   padding: 0 10px;

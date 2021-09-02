@@ -14,7 +14,6 @@
             this.listData = f_news;
             let getIndex = localStorage.getItem('newsCnt');
             $("#newsCnt").html(this.listData[getIndex].context);
-            $('#newsCnt .nwrecent').remove();
         },
     }).mount("#newsCnt");
 </script>

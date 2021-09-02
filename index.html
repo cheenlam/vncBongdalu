@@ -33,13 +33,12 @@
                             <span class="txt">{{hd_selList[hd_checkIndex].txt}}</span>
                         </div>
                     </div>
-                    <div class="hd_selList" id="hd_selList">
+                    <div class="hd_selList" id="hd_selList" v-if="false">
                         <ul>
                             <li v-for="(item,index) in hd_selList" @click="hd_checked = false, chHdcheck(index), chMainIndex(0)">
                                 <a :href=`#/${item.sort}`>
                                     <div class="icon" :class="item.sort"></div>
                                     <span class="txt">{{item.txt}}</span>
-                                    <div class="count">{{item.count}}</div>
                                 </a>
                             </li>
                         </ul>
@@ -79,7 +78,7 @@
         </div>
 
         <!-- ==== secondSort start  (第二項目)==== -->
-        <div class="secondSort">
+        <div class="secondSort" v-if="false">
             <!-- 足球 -->
             <template v-if="hd_checkIndex==0">
                  <!-- 足球 score -->   
@@ -247,7 +246,6 @@
                         f_news = data;
                         let getIndex = localStorage.getItem('newsCnt')
                         $("#newsCnt").html(data[getIndex].context);
-                        $('#newsCnt .nwrecent').remove();
                     },
                 });
             },
