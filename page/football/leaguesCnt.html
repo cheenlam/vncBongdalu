@@ -42,13 +42,13 @@
                 let self = this;
                 let getNum = localStorage.getItem('leaguesCnt')
                 $.ajax({
-                    url: `https://vnc88.awgstudio.com/api/football/league/${getNum}`,
+                    url: `https://www.vnc8888.com/api/football/league/${getNum}`,
                     dataType: "json",
                     success: function(data) {
-                        if(data.length > 0){
+                        if (data.length > 0) {
                             self.chShow(data[0], 0)
-                            self.listData = data;  
-                        }                
+                            self.listData = data;
+                        }
                     },
                 });
             },
@@ -56,9 +56,9 @@
                 let self = this;
                 let getNum = localStorage.getItem('leaguesCnt');
                 $.ajax({
-                    url: `https://vnc88.awgstudio.com/api/football/league`,
+                    url: `https://www.vnc8888.com/api/football/league`,
                     dataType: "json",
-                    success: function(data) {   
+                    success: function(data) {
                         let getName;
                         data.forEach(function(item) {
                             item.leagues.forEach(function(league) {
@@ -71,21 +71,21 @@
                     },
                 });
             },
-            chFollow() {    
+            chFollow() {
                 let num = localStorage.getItem('leaguesCnt');
                 this.follow = this.memory.indexOf(num) != -1 ? true : false;
             },
             change() {
                 let num = localStorage.getItem('leaguesCnt');
-                if(this.memory.indexOf(num) != -1){
+                if (this.memory.indexOf(num) != -1) {
                     let index = this.memory.indexOf(num, 0);
                     this.memory.splice(index, 1);
-                }else{
+                } else {
                     this.memory.push(num);
                 }
 
                 localStorage.setItem('localFleague', this.memory);
-                this.chFollow() 
+                this.chFollow()
             }
         },
         mounted() {
