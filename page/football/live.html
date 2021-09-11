@@ -134,6 +134,7 @@
         methods: {
             getData() {
                 var self = this;
+               
                 $.ajax({
                     url: "https://www.vnc8888.com/api/football/score",
                     dataType: "json",
@@ -164,7 +165,7 @@
         },
         mounted() {
             this.getData();
-            this.timer = setInterval(this.getData, 1000 * 30);
+            this.time = setInterval(this.getData, 1000 * 30);
 
             let local = localStorage.getItem('localFlive');
             if (local == '' || local == null) {
