@@ -52,19 +52,19 @@
                 <!-- 足球 -->
                 <ul v-if="hd_checkIndex==0">
                     <li v-for="(item,index) in mainSort.football" @click="chMainIndex(index)">
-                        <a :href=`#/${item.herf}`>{{item.txt}}</a>
+                        <a :href="item.herf">{{item.txt}}</a>
                     </li>
                 </ul>
                 <!-- 籃球 -->
                 <ul v-else-if="hd_checkIndex==1">
                     <li v-for="(item,index) in mainSort.basketball" @click="chMainIndex(index)">
-                        <a :href=`#/${item.herf}`>{{item.txt}}</a>
+                        <a :href="item.herf">{{item.txt}}</a>
                     </li>
                 </ul>
                 <!-- 電競 -->
                 <ul v-else-if="hd_checkIndex==2">
                     <li v-for="(item,index) in mainSort.esports" @click="chMainIndex(index)">
-                        <a :href=`#/${item.herf}`>{{item.txt}}</a>
+                        <a :href="item.herf">{{item.txt}}</a>
                     </li>
                 </ul>
             </template>
@@ -84,13 +84,13 @@
                  <!-- 足球 score -->   
                 <ul v-if="mainIndex==0">
                     <li v-for="(item,index) in secondSort.football.score">
-                        <a :href=`#/${item.herf}`>{{item.txt}}</a>
+                        <a :href="item.herf">{{item.txt}}</a>
                     </li>
                 </ul>
                 <!-- 足球 news -->
                 <ul v-else-if="mainIndex==1">
                     <li v-for="(item,index) in secondSort.football.news">
-                        <a :href=`#/${item.herf}`>{{item.txt}}</a>
+                        <a :href="item.herf">{{item.txt}}</a>
                     </li>
                 </ul>
             </template>
@@ -99,13 +99,13 @@
                  <!-- 籃球 score -->
                 <ul v-if="mainIndex==0">
                     <li v-for="(item,index) in secondSort.basketball.score">
-                        <a :href=`#/${item.herf}`>{{item.txt}}</a>
+                        <a :href=`item.herf`>{{item.txt}}</a>
                     </li>
                 </ul>
                 <!-- 籃球 nba -->
                 <ul v-else-if="mainIndex==1">
                     <li v-for="(item,index) in secondSort.basketball.nba">
-                        <a :href=`#/${item.herf}`>{{item.txt}}</a>
+                        <a :href="item.herf">{{item.txt}}</a>
                     </li>
                 </ul>
             </template>
@@ -147,69 +147,69 @@
                 mainIndex: 0,
                 mainSort: {
                     football: [{
-                        herf: "football/score",
+                        herf: "#/football/score",
                         txt: "Tỷ số"
                     }, {
-                        herf: "football/news",
+                        herf: "#/football/news",
                         txt: "Nhận định"
                     }, {
-                        herf: "football/leagues",
+                        herf: "#/football/leagues",
                         txt: "Kho dữ liêu"
                     }],
                     basketball: [{
-                        herf: "basketball/score",
+                        herf: "#/basketball/score",
                         txt: "Tỷ số"
                     }, {
-                        herf: "basketball/nba",
+                        herf: "#/basketball/nba",
                         txt: "NBA"
                     }],
                     esports: [{
-                        herf: "esports/score",
+                        herf: "#/esports/score",
                         txt: "Tỷ số"
                     }, {
-                        herf: "esports/results",
+                        herf: "#/esports/results",
                         txt: "Kết quả"
                     }, {
-                        herf: "esports/today",
+                        herf: "#/esports/today",
                         txt: "Lịch thi đấu"
                     }]
                 },
                 secondSort: {
                     football: {
                         score: [{
-                            herf: "football/live",
+                            herf: "#/football/live",
                             txt: "Trực tuyến"
                         }, {
-                            herf: "football/results",
+                            herf: "#/football/results",
                             txt: "Kết quả"
                         }, {
-                            herf: "football/today",
+                            herf: "#/football/today",
                             txt: "Lịch thi đấu"
                         }],
                         news: []
                     },
                     basketball: {
                         score: [{
-                            herf: "basketball/live",
+                            herf: "#/basketball/live",
                             txt: "Trực tuyến"
                         }, {
-                            herf: "basketball/results",
+                            herf: "#/basketball/results",
                             txt: "Kết quả"
                         }, {
-                            herf: "basketball/today",
+                            herf: "#/basketball/today",
                             txt: "Lịch thi đấu"
                         }],
                         nba: [{
-                            herf: "basketball/nbaChart",
+                            herf: "#/basketball/nbaChart",
                             txt: "Bảng xếp hạng"
                         }, {
-                            herf: "basketball/nbaToday",
+                            herf: "#/basketball/nbaToday",
                             txt: "Lịch thi đấu"
                         }, {
-                            herf: "basketball/nbaTeam",
+                            herf: "#/basketball/nbaTeam",
                             txt: "Đội bóng"
                         }, {
-                            herf: "basketball/nbaPlayer",
+                            herf: "#/basketball/nbaPlayer",
                             txt: "Cầu thủ"
                         }]
                     },

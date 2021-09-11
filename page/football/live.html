@@ -164,7 +164,7 @@
         },
         mounted() {
             this.getData();
-            this.timer = setInterval(this.getData, 1000 * 10);
+            this.timer = setInterval(this.getData, 1000 * 30);
 
             let local = localStorage.getItem('localFlive');
             if (local == '' || local == null) {
