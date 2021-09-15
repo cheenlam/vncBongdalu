@@ -151,20 +151,20 @@
             goBank() {
                 history.go(-1)
             },
-            getf_news() {
-                $.ajax({
-                    url: "https://www.vnc8888.com/api/football/news",
-                    dataType: "json",
-                    success: function(data) {
-                        f_news = data;
-                        let getIndex = localStorage.getItem('newsCnt')
-                        $("#newsCnt").html(data[getIndex].context);
-                    },
-                });
-            },
+            // getf_news() {
+            //     $.ajax({
+            //         url: "https://www.vnc8888.com/api/football/news",
+            //         dataType: "json",
+            //         success: function(data) {
+            //             f_news = data;
+            //             let getIndex = localStorage.getItem('newsCnt')
+            //             $("#newsCnt").html(data[getIndex].context);
+            //         },
+            //     });
+            // },
         },
         mounted() {
-            this.getf_news();
+            // this.getf_news();
         },
     }).mount("#mainBox");
 </script>
