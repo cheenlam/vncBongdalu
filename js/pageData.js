@@ -17,10 +17,8 @@ var sortSel = {
         football: [{
             herf: "#/football/score",
             txt: "Tỷ số"
-        }, {
-            herf: "#/football/news",
-            txt: "Nhận định"
-        }, {
+        },
+        {
             herf: "#/football/leagues",
             txt: "Kho dữ liêu"
         }],
