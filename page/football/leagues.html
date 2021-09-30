@@ -76,9 +76,9 @@
                 if (this.iptTxt == '') {
                     resArr = this.listData
                 } else {
-                    this.listData.filter(function(e) {
-                        if (e.country.split('(')[0] == txt) {
-                            resArr.push(e);
+                    this.listData.forEach(function(item){
+                        if (item.country.split('(')[0].match(txt)){
+                            resArr.push(item);              
                         }
                     })
                 }
