@@ -77,7 +77,7 @@
                     resArr = this.listData
                 } else {
                     this.listData.forEach(function(item){
-                        if (item.country.split('(')[0].match(txt)){
+                        if (item.country.split('(')[0].toLowerCase().match(txt.toLowerCase())){
                             resArr.push(item);              
                         }
                     })
