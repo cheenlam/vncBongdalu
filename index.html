@@ -28,7 +28,7 @@
                     </a>
                 </div>
                 <div class="hd_select">
-                    <div class="hd_checked" :class="{'on' : hd_checked}" @click="hd_checked = !hd_checked">
+                    <div class="hd_checked" :class="{'on' : hd_checked}" @click="hd_checked = !hd_checked" v-if="false">
                         <div class="title">
                             <div class="icon" :class="hd_selList[hd_checkIndex].sort"></div>
                             <span class="txt">{{hd_selList[hd_checkIndex].txt}}</span>
